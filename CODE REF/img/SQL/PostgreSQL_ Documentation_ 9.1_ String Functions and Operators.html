@@ -1,0 +1,2281 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)https://www.postgresql.org/docs/9.1/functions-string.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>PostgreSQL: Documentation: 9.1: String Functions and Operators</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+   
+  <meta name="theme-color" content="#336791">
+  <meta name="copyright" content="The PostgreSQL Global Development Group">
+  <meta property="og:url" content="https://www.postgresql.org/docs/9.1/functions-string.html">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2016-10-27T13:32:07">
+  <meta property="og:image" content="https://www.postgresql.org/media/img/about/press/elephant.png">
+  <meta property="og:title" content="String Functions and Operators">
+
+  <meta property="og:site_name" content="PostgreSQL Documentation">
+  <link href="./PostgreSQL_ Documentation_ 9.1_ String Functions and Operators_files/fontawesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="./PostgreSQL_ Documentation_ 9.1_ String Functions and Operators_files/bootstrap-4.4.1.min.css">
+  <link rel="shortcut icon" href="https://www.postgresql.org/favicon.ico">
+  
+    <link rel="stylesheet" type="text/css" href="./PostgreSQL_ Documentation_ 9.1_ String Functions and Operators_files/base.css">
+  
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row justify-content-md-center">
+        <div class="col">
+          <!-- Header -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand p-0" href="https://www.postgresql.org/">
+              <img class="logo" src="./PostgreSQL_ Documentation_ 9.1_ String Functions and Operators_files/elephant.png" alt="PostgreSQL Elephant Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#pgNavbar" aria-controls="pgNavbar" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="pgNavbar">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item p-2"><a href="https://www.postgresql.org/" title="Home">Home</a></li>
+                <li class="nav-item p-2"><a href="https://www.postgresql.org/about/" title="About">About</a></li>
+                <li class="nav-item p-2"><a href="https://www.postgresql.org/download/" title="Download">Download</a></li>
+                <li class="nav-item p-2"><a href="https://www.postgresql.org/docs/" title="Documentation">Documentation</a></li>
+                <li class="nav-item p-2"><a href="https://www.postgresql.org/community/" title="Community">Community</a></li>
+                <li class="nav-item p-2"><a href="https://www.postgresql.org/developer/" title="Developers">Developers</a></li>
+                <li class="nav-item p-2"><a href="https://www.postgresql.org/support/" title="Support">Support</a></li>
+                <li class="nav-item p-2"><a href="https://www.postgresql.org/about/donate/" title="Donate">Donate</a></li>
+                <li class="nav-item p-2"><a href="https://www.postgresql.org/account/" title="Your account">Your account</a></li>
+              </ul>
+             <form role="search" method="get" action="https://www.postgresql.org/search/">
+               <div class="input-group">
+                 <input id="q" name="q" type="text" size="20" maxlength="255" accesskey="s" class="form-control" placeholder="Search for...">
+                 <span class="input-group-btn">
+                   <button class="btn btn-default" type="submit"><i class="fas fa-search"></i></button>
+                 </span>
+               </div><!-- /input-group -->
+             </form>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="row justify-content-center pg-shout-box">
+        <div class="col text-white text-center">11th November 2021: <a href="https://www.postgresql.org/about/news/postgresql-141-135-129-1114-1019-and-9624-released-2349/">
+  PostgreSQL 14.1, 13.5, 12.9, 11.14, 10.19, and 9.6.24 Released</a>!
+
+</div>
+      </div>
+    </div>
+    <div class="container-fluid margin">
+      <div class="row">
+        <div id="pgContentWrap" class="col-11">
+          <div class="row">
+            <div class="col-md-6 mb-2">
+              <div class="row">
+                <div class="col">
+                  <div>
+                    <a href="https://www.postgresql.org/docs/" title="Documentation">Documentation</a> → <a href="https://www.postgresql.org/docs/9.1/index.html">PostgreSQL 9.1</a>
+                  </div>
+                </div>
+              </div>
+              
+                <div class="row">
+                  <div class="col">
+                    Supported Versions:
+                      
+                        
+                        
+                          <a href="https://www.postgresql.org/docs/current/functions-string.html" title="PostgreSQL 14 - String Functions and Operators">Current</a>
+                          (<a href="https://www.postgresql.org/docs/14/functions-string.html" title="PostgreSQL 14 - String Functions and Operators">14</a>)
+                        
+                      
+                         / 
+                        
+                          <a href="https://www.postgresql.org/docs/13/functions-string.html" title="PostgreSQL 13 - String Functions and Operators">13</a>
+                        
+                      
+                         / 
+                        
+                          <a href="https://www.postgresql.org/docs/12/functions-string.html" title="PostgreSQL 12 - String Functions and Operators">12</a>
+                        
+                      
+                         / 
+                        
+                          <a href="https://www.postgresql.org/docs/11/functions-string.html" title="PostgreSQL 11 - String Functions and Operators">11</a>
+                        
+                      
+                         / 
+                        
+                          <a href="https://www.postgresql.org/docs/10/functions-string.html" title="PostgreSQL 10 - String Functions and Operators">10</a>
+                        
+                      
+                  </div>
+                </div>
+              
+              
+                <div class="row">
+                  <div class="col">
+                    Development Versions:
+                    
+                      
+                      <a href="https://www.postgresql.org/docs/devel/functions-string.html" title="PostgreSQL devel - String Functions and Operators" rel="nofollow">devel</a>
+                    
+                  </div>
+                </div>
+              
+              
+                <div class="row">
+                  <div class="col-12">
+                    Unsupported versions:
+                    
+                      
+                      <a href="https://www.postgresql.org/docs/9.6/functions-string.html" title="PostgreSQL 9.6 - String Functions and Operators" rel="nofollow">9.6</a>
+                    
+                       / 
+                      <a href="https://www.postgresql.org/docs/9.5/functions-string.html" title="PostgreSQL 9.5 - String Functions and Operators" rel="nofollow">9.5</a>
+                    
+                       / 
+                      <a href="https://www.postgresql.org/docs/9.4/functions-string.html" title="PostgreSQL 9.4 - String Functions and Operators" rel="nofollow">9.4</a>
+                    
+                       / 
+                      <a href="https://www.postgresql.org/docs/9.3/functions-string.html" title="PostgreSQL 9.3 - String Functions and Operators" rel="nofollow">9.3</a>
+                    
+                       / 
+                      <a href="https://www.postgresql.org/docs/9.2/functions-string.html" title="PostgreSQL 9.2 - String Functions and Operators" rel="nofollow">9.2</a>
+                    
+                       / 
+                      <a href="https://www.postgresql.org/docs/9.1/functions-string.html" title="PostgreSQL 9.1 - String Functions and Operators" class="docs-version-selected" rel="nofollow">9.1</a>
+                    
+                       / 
+                      <a href="https://www.postgresql.org/docs/9.0/functions-string.html" title="PostgreSQL 9.0 - String Functions and Operators" rel="nofollow">9.0</a>
+                    
+                       / 
+                      <a href="https://www.postgresql.org/docs/8.4/functions-string.html" title="PostgreSQL 8.4 - String Functions and Operators" rel="nofollow">8.4</a>
+                    
+                       / 
+                      <a href="https://www.postgresql.org/docs/8.3/functions-string.html" title="PostgreSQL 8.3 - String Functions and Operators" rel="nofollow">8.3</a>
+                    
+                       / 
+                      <a href="https://www.postgresql.org/docs/8.2/functions-string.html" title="PostgreSQL 8.2 - String Functions and Operators" rel="nofollow">8.2</a>
+                    
+                       / 
+                      <a href="https://www.postgresql.org/docs/8.1/functions-string.html" title="PostgreSQL 8.1 - String Functions and Operators" rel="nofollow">8.1</a>
+                    
+                       / 
+                      <a href="https://www.postgresql.org/docs/8.0/functions-string.html" title="PostgreSQL 8.0 - String Functions and Operators" rel="nofollow">8.0</a>
+                    
+                       / 
+                      <a href="https://www.postgresql.org/docs/7.4/functions-string.html" title="PostgreSQL 7.4 - String Functions and Operators" rel="nofollow">7.4</a>
+                    
+                       / 
+                      <a href="https://www.postgresql.org/docs/7.3/functions-string.html" title="PostgreSQL 7.3 - String Functions and Operators" rel="nofollow">7.3</a>
+                    
+                       / 
+                      <a href="https://www.postgresql.org/docs/7.2/functions-string.html" title="PostgreSQL 7.2 - String Functions and Operators" rel="nofollow">7.2</a>
+                    
+                       / 
+                      <a href="https://www.postgresql.org/docs/7.1/functions-string.html" title="PostgreSQL 7.1 - String Functions and Operators" rel="nofollow">7.1</a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+            <div class="col-md-6 col-lg-5 offset-lg-1">
+              <form id="docSearchForm" role="search" method="get" action="https://www.postgresql.org/search/">
+                <input type="hidden" name="u" value="/docs/9.1/">
+                <div class="input-group">
+                  <input type="text" id="q" name="q" class="form-control" placeholder="Search the documentation for...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="fas fa-search"></i></button>
+                  </span>
+                </div><!-- /input-group -->
+              </form>
+            </div>
+          </div>
+
+	  <div class="text-center alert-warning">
+	    This documentation is for an unsupported version of PostgreSQL.<br>
+	    You may want to view the same page for the
+	    <a href="https://www.postgresql.org/docs/current/functions-string.html" title="PostgreSQL  - String Functions and Operators">current</a>
+	    version, or one of the other supported versions listed above instead.
+	  </div>
+
+          <div id="docContent">
+            <div class="NAVHEADER">
+  <table summary="Header navigation table" width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tbody><tr>
+      <th colspan="5" align="center" valign="bottom"><a href="https://www.postgresql.org/docs/9.1/index.html">PostgreSQL 9.1.24 Documentation</a></th>
+    </tr>
+
+    <tr>
+      <td width="10%" align="left" valign="top"><a title="Mathematical Functions and Operators" href="https://www.postgresql.org/docs/9.1/functions-math.html" accesskey="P">Prev</a></td>
+
+      <td width="10%" align="left" valign="top"><a href="https://www.postgresql.org/docs/9.1/functions.html" accesskey="U">Up</a></td>
+
+      <td width="60%" align="center" valign="bottom">Chapter 9.
+      Functions and Operators</td>
+
+      <td width="20%" align="right" valign="top"><a title="Binary String Functions and Operators" href="https://www.postgresql.org/docs/9.1/functions-binarystring.html" accesskey="N">Next</a></td>
+    </tr>
+  </tbody></table>
+  <hr class="c1" width="100%">
+</div>
+
+<div class="SECT1">
+  <h1 class="SECT1"><a name="FUNCTIONS-STRING" id="FUNCTIONS-STRING">9.4. String Functions and Operators</a></h1>
+
+  <p>This section describes functions and operators for examining
+  and manipulating string values. Strings in this context include
+  values of the types <tt class="TYPE">character</tt>, <tt class="TYPE">character varying</tt>, and <tt class="TYPE">text</tt>.
+  Unless otherwise noted, all of the functions listed below work on
+  all of these types, but be wary of potential effects of automatic
+  space-padding when using the <tt class="TYPE">character</tt>
+  type. Some functions also exist natively for the bit-string
+  types.</p>
+
+  <p><acronym class="ACRONYM">SQL</acronym> defines some string
+  functions that use key words, rather than commas, to separate
+  arguments. Details are in <a href="https://www.postgresql.org/docs/9.1/functions-string.html#FUNCTIONS-STRING-SQL">Table 9-6</a>.
+  <span class="PRODUCTNAME">PostgreSQL</span> also provides
+  versions of these functions that use the regular function
+  invocation syntax (see <a href="https://www.postgresql.org/docs/9.1/functions-string.html#FUNCTIONS-STRING-OTHER">Table
+  9-7</a>).</p>
+
+  <div class="NOTE">
+    <blockquote class="NOTE">
+      <p><b>Note:</b> Before <span class="PRODUCTNAME">PostgreSQL</span> 8.3, these functions would
+      silently accept values of several non-string data types as
+      well, due to the presence of implicit coercions from those
+      data types to <tt class="TYPE">text</tt>. Those coercions
+      have been removed because they frequently caused surprising
+      behaviors. However, the string concatenation operator
+      (<tt class="LITERAL">||</tt>) still accepts non-string input,
+      so long as at least one input is of a string type, as shown
+      in <a href="https://www.postgresql.org/docs/9.1/functions-string.html#FUNCTIONS-STRING-SQL">Table
+      9-6</a>. For other cases, insert an explicit coercion to
+      <tt class="TYPE">text</tt> if you need to duplicate the
+      previous behavior.</p>
+    </blockquote>
+  </div>
+
+  <div class="TABLE">
+    <a name="FUNCTIONS-STRING-SQL" id="FUNCTIONS-STRING-SQL"></a>
+
+    <p class="c2">Table 9-6. <acronym class="ACRONYM">SQL</acronym>
+    String Functions and Operators</p>
+
+    <table border="1" class="CALSTABLE">
+      <colgroup><col>
+      <col>
+      <col>
+      <col>
+      <col>
+
+      </colgroup><thead>
+        <tr>
+          <th>Function</th>
+
+          <th>Return Type</th>
+
+          <th>Description</th>
+
+          <th>Example</th>
+
+          <th>Result</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td><tt class="LITERAL"><tt class="PARAMETER">string</tt>
+          <tt class="LITERAL">||</tt> <tt class="PARAMETER">string</tt></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>String concatenation</td>
+
+          <td><tt class="LITERAL">'Post' || 'greSQL'</tt></td>
+
+          <td><tt class="LITERAL">PostgreSQL</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><tt class="PARAMETER">string</tt>
+          <tt class="LITERAL">||</tt> <tt class="PARAMETER">non-string</tt></tt> or <tt class="LITERAL"><tt class="PARAMETER">non-string</tt>
+          <tt class="LITERAL">||</tt> <tt class="PARAMETER">string</tt></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>String concatenation with one non-string input</td>
+
+          <td><tt class="LITERAL">'Value: ' || 42</tt></td>
+
+          <td><tt class="LITERAL">Value: 42</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">bit_length(<tt class="PARAMETER">string</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">int</tt></td>
+
+          <td>Number of bits in string</td>
+
+          <td><tt class="LITERAL">bit_length('jose')</tt></td>
+
+          <td><tt class="LITERAL">32</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">char_length(<tt class="PARAMETER">string</tt>)</code></tt> or <tt class="LITERAL"><code class="FUNCTION">character_length(<tt class="PARAMETER">string</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">int</tt></td>
+
+          <td>Number of characters in string</td>
+
+          <td><tt class="LITERAL">char_length('jose')</tt></td>
+
+          <td><tt class="LITERAL">4</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">lower(<tt class="PARAMETER">string</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Convert string to lower case</td>
+
+          <td><tt class="LITERAL">lower('TOM')</tt></td>
+
+          <td><tt class="LITERAL">tom</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">octet_length(<tt class="PARAMETER">string</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">int</tt></td>
+
+          <td>Number of bytes in string</td>
+
+          <td><tt class="LITERAL">octet_length('jose')</tt></td>
+
+          <td><tt class="LITERAL">4</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">overlay(<tt class="PARAMETER">string</tt>
+          placing <tt class="PARAMETER">string</tt> from <tt class="TYPE">int</tt> [<span class="OPTIONAL">for <tt class="TYPE">int</tt></span>])</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Replace substring</td>
+
+          <td><tt class="LITERAL">overlay('Txxxxas' placing 'hom'
+          from 2 for 4)</tt></td>
+
+          <td><tt class="LITERAL">Thomas</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">position(<tt class="PARAMETER">substring</tt>
+          in <tt class="PARAMETER">string</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">int</tt></td>
+
+          <td>Location of specified substring</td>
+
+          <td><tt class="LITERAL">position('om' in
+          'Thomas')</tt></td>
+
+          <td><tt class="LITERAL">3</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">substring(<tt class="PARAMETER">string</tt>
+          [<span class="OPTIONAL">from <tt class="TYPE">int</tt></span>] [<span class="OPTIONAL">for
+          <tt class="TYPE">int</tt></span>])</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Extract substring</td>
+
+          <td><tt class="LITERAL">substring('Thomas' from 2 for
+          3)</tt></td>
+
+          <td><tt class="LITERAL">hom</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">substring(<tt class="PARAMETER">string</tt>
+          from <tt class="REPLACEABLE c3">pattern</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Extract substring matching POSIX regular expression.
+          See <a href="https://www.postgresql.org/docs/9.1/functions-matching.html">Section 9.7</a> for
+          more information on pattern matching.</td>
+
+          <td><tt class="LITERAL">substring('Thomas' from
+          '...$')</tt></td>
+
+          <td><tt class="LITERAL">mas</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">substring(<tt class="PARAMETER">string</tt>
+          from <tt class="REPLACEABLE c3">pattern</tt> for
+          <tt class="REPLACEABLE c3">escape</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Extract substring matching <acronym class="ACRONYM">SQL</acronym> regular expression. See <a href="https://www.postgresql.org/docs/9.1/functions-matching.html">Section 9.7</a> for more
+          information on pattern matching.</td>
+
+          <td><tt class="LITERAL">substring('Thomas' from
+          '%#"o_a#"_' for '#')</tt></td>
+
+          <td><tt class="LITERAL">oma</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">trim([<span class="OPTIONAL">leading |
+          trailing | both</span>] [<span class="OPTIONAL"><tt class="PARAMETER">characters</tt></span>]
+          from <tt class="PARAMETER">string</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Remove the longest string containing only the
+          <tt class="PARAMETER">characters</tt> (a space by
+          default) from the start/end/both ends of the <tt class="PARAMETER">string</tt></td>
+
+          <td><tt class="LITERAL">trim(both 'x' from
+          'xTomxx')</tt></td>
+
+          <td><tt class="LITERAL">Tom</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">upper(<tt class="PARAMETER">string</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Convert string to upper case</td>
+
+          <td><tt class="LITERAL">upper('tom')</tt></td>
+
+          <td><tt class="LITERAL">TOM</tt></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Additional string manipulation functions are available and are
+  listed in <a href="https://www.postgresql.org/docs/9.1/functions-string.html#FUNCTIONS-STRING-OTHER">Table 9-7</a>.
+  Some of them are used internally to implement the <acronym class="ACRONYM">SQL</acronym>-standard string functions listed in
+  <a href="https://www.postgresql.org/docs/9.1/functions-string.html#FUNCTIONS-STRING-SQL">Table
+  9-6</a>.</p>
+
+  <div class="TABLE">
+    <a name="FUNCTIONS-STRING-OTHER" id="FUNCTIONS-STRING-OTHER"></a>
+
+    <p class="c2">Table 9-7. Other String Functions</p><a name="FORMAT" id="FORMAT"></a>
+
+    <table border="1" class="CALSTABLE">
+      <colgroup><col>
+      <col>
+      <col>
+      <col>
+      <col>
+
+      </colgroup><thead>
+        <tr>
+          <th>Function</th>
+
+          <th>Return Type</th>
+
+          <th>Description</th>
+
+          <th>Example</th>
+
+          <th>Result</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">ascii(<tt class="PARAMETER">string</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">int</tt></td>
+
+          <td><acronym class="ACRONYM">ASCII</acronym> code of the
+          first character of the argument. For <acronym class="ACRONYM">UTF8</acronym> returns the Unicode code point
+          of the character. For other multibyte encodings, the
+          argument must be an <acronym class="ACRONYM">ASCII</acronym> character.</td>
+
+          <td><tt class="LITERAL">ascii('x')</tt></td>
+
+          <td><tt class="LITERAL">120</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">btrim(<tt class="PARAMETER">string</tt>
+          <tt class="TYPE">text</tt> [<span class="OPTIONAL">,
+          <tt class="PARAMETER">characters</tt> <tt class="TYPE">text</tt></span>])</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Remove the longest string consisting only of
+          characters in <tt class="PARAMETER">characters</tt> (a
+          space by default) from the start and end of <tt class="PARAMETER">string</tt></td>
+
+          <td><tt class="LITERAL">btrim('xyxtrimyyx',
+          'xy')</tt></td>
+
+          <td><tt class="LITERAL">trim</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">chr(<tt class="TYPE">int</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Character with the given code. For <acronym class="ACRONYM">UTF8</acronym> the argument is treated as a
+          Unicode code point. For other multibyte encodings the
+          argument must designate an <acronym class="ACRONYM">ASCII</acronym> character. The NULL (0)
+          character is not allowed because text data types cannot
+          store such bytes.</td>
+
+          <td><tt class="LITERAL">chr(65)</tt></td>
+
+          <td><tt class="LITERAL">A</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">concat(<tt class="PARAMETER">str</tt>
+          <tt class="TYPE">"any"</tt> [, <tt class="PARAMETER">str</tt> <tt class="TYPE">"any"</tt> [, ...]
+          ])</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Concatenate all arguments. NULL arguments are
+          ignored.</td>
+
+          <td><tt class="LITERAL">concat('abcde', 2, NULL,
+          22)</tt></td>
+
+          <td><tt class="LITERAL">abcde222</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">concat_ws(<tt class="PARAMETER">sep</tt>
+          <tt class="TYPE">text</tt>, <tt class="PARAMETER">str</tt> <tt class="TYPE">"any"</tt> [,
+          <tt class="PARAMETER">str</tt> <tt class="TYPE">"any"</tt> [, ...] ])</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Concatenate all but first arguments with separators.
+          The first parameter is used as a separator. NULL
+          arguments are ignored.</td>
+
+          <td><tt class="LITERAL">concat_ws(',', 'abcde', 2, NULL,
+          22)</tt></td>
+
+          <td><tt class="LITERAL">abcde,2,22</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">convert(<tt class="PARAMETER">string</tt>
+          <tt class="TYPE">bytea</tt>, <tt class="PARAMETER">src_encoding</tt> <tt class="TYPE">name</tt>,
+          <tt class="PARAMETER">dest_encoding</tt> <tt class="TYPE">name</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">bytea</tt></td>
+
+          <td>Convert string to <tt class="PARAMETER">dest_encoding</tt>. The original encoding is
+          specified by <tt class="PARAMETER">src_encoding</tt>. The
+          <tt class="PARAMETER">string</tt> must be valid in this
+          encoding. Conversions can be defined by <tt class="COMMAND">CREATE CONVERSION</tt>. Also there are some
+          predefined conversions. See <a href="https://www.postgresql.org/docs/9.1/functions-string.html#CONVERSION-NAMES">Table 9-8</a>
+          for available conversions.</td>
+
+          <td><tt class="LITERAL">convert('text_in_utf8', 'UTF8',
+          'LATIN1')</tt></td>
+
+          <td><tt class="LITERAL">text_in_utf8</tt> represented in
+          Latin-1 encoding (ISO 8859-1)</td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">convert_from(<tt class="PARAMETER">string</tt>
+          <tt class="TYPE">bytea</tt>, <tt class="PARAMETER">src_encoding</tt> <tt class="TYPE">name</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Convert string to the database encoding. The original
+          encoding is specified by <tt class="PARAMETER">src_encoding</tt>. The <tt class="PARAMETER">string</tt> must be valid in this
+          encoding.</td>
+
+          <td><tt class="LITERAL">convert_from('text_in_utf8',
+          'UTF8')</tt></td>
+
+          <td><tt class="LITERAL">text_in_utf8</tt> represented in
+          the current database encoding</td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">convert_to(<tt class="PARAMETER">string</tt>
+          <tt class="TYPE">text</tt>, <tt class="PARAMETER">dest_encoding</tt> <tt class="TYPE">name</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">bytea</tt></td>
+
+          <td>Convert string to <tt class="PARAMETER">dest_encoding</tt>.</td>
+
+          <td><tt class="LITERAL">convert_to('some text',
+          'UTF8')</tt></td>
+
+          <td><tt class="LITERAL">some text</tt> represented in the
+          UTF8 encoding</td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">decode(<tt class="PARAMETER">string</tt>
+          <tt class="TYPE">text</tt>, <tt class="PARAMETER">format</tt> <tt class="TYPE">text</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">bytea</tt></td>
+
+          <td>Decode binary data from textual representation in
+          <tt class="PARAMETER">string</tt>. Options for <tt class="PARAMETER">format</tt> are same as in <code class="FUNCTION">encode</code>.</td>
+
+          <td><tt class="LITERAL">decode('MTIzAAE=',
+          'base64')</tt></td>
+
+          <td><tt class="LITERAL">\x3132330001</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">encode(<tt class="PARAMETER">data</tt>
+          <tt class="TYPE">bytea</tt>, <tt class="PARAMETER">format</tt> <tt class="TYPE">text</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Encode binary data into a textual representation.
+          Supported formats are: <tt class="LITERAL">base64</tt>,
+          <tt class="LITERAL">hex</tt>, <tt class="LITERAL">escape</tt>. <tt class="LITERAL">escape</tt>
+          converts zero bytes and high-bit-set bytes to octal
+          sequences (<tt class="LITERAL">\</tt><tt class="REPLACEABLE c3">nnn</tt>) and doubles backslashes.</td>
+
+          <td><tt class="LITERAL">encode(E'123\\000\\001',
+          'base64')</tt></td>
+
+          <td><tt class="LITERAL">MTIzAAE=</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">format</code>(<tt class="PARAMETER">formatstr</tt> <tt class="TYPE">text</tt> [,
+          <tt class="PARAMETER">str</tt> <tt class="TYPE">"any"</tt> [, ...] ])</tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Format a string. This function is similar to the C
+          function <code class="FUNCTION">sprintf</code>; but only
+          the following conversion specifications are recognized:
+          <tt class="LITERAL">%s</tt> interpolates the
+          corresponding argument as a string; <tt class="LITERAL">%I</tt> escapes its argument as an SQL
+          identifier; <tt class="LITERAL">%L</tt> escapes its
+          argument as an SQL literal; <tt class="LITERAL">%%</tt>
+          outputs a literal <tt class="LITERAL">%</tt>. A
+          conversion can reference an explicit parameter position
+          by preceding the conversion specifier with <tt class="LITERAL"><tt class="REPLACEABLE c3">n</tt>$</tt>, where
+          <tt class="REPLACEABLE c3">n</tt> is the argument
+          position. See also <a href="https://www.postgresql.org/docs/9.1/plpgsql-statements.html#PLPGSQL-QUOTE-LITERAL-EXAMPLE">Example
+          39-1</a>.</td>
+
+          <td><tt class="LITERAL">format('Hello %s, %1$s',
+          'World')</tt></td>
+
+          <td><tt class="LITERAL">Hello World, World</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">initcap(<tt class="PARAMETER">string</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Convert the first letter of each word to upper case
+          and the rest to lower case. Words are sequences of
+          alphanumeric characters separated by non-alphanumeric
+          characters.</td>
+
+          <td><tt class="LITERAL">initcap('hi THOMAS')</tt></td>
+
+          <td><tt class="LITERAL">Hi Thomas</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">left(<tt class="PARAMETER">str</tt> <tt class="TYPE">text</tt>, <tt class="PARAMETER">n</tt> <tt class="TYPE">int</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Return first <tt class="REPLACEABLE c3">n</tt>
+          characters in the string. When <tt class="REPLACEABLE c3">n</tt> is negative, return all but last
+          |<tt class="REPLACEABLE c3">n</tt>| characters.</td>
+
+          <td><tt class="LITERAL">left('abcde', 2)</tt></td>
+
+          <td><tt class="LITERAL">ab</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">length(<tt class="PARAMETER">string</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">int</tt></td>
+
+          <td>Number of characters in <tt class="PARAMETER">string</tt></td>
+
+          <td><tt class="LITERAL">length('jose')</tt></td>
+
+          <td><tt class="LITERAL">4</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">length(<tt class="PARAMETER">string</tt>
+          <tt class="TYPE">bytea</tt>, <tt class="PARAMETER">encoding</tt> <tt class="TYPE">name</tt>
+          )</code></tt></td>
+
+          <td><tt class="TYPE">int</tt></td>
+
+          <td>Number of characters in <tt class="PARAMETER">string</tt> in the given <tt class="PARAMETER">encoding</tt>. The <tt class="PARAMETER">string</tt> must be valid in this
+          encoding.</td>
+
+          <td><tt class="LITERAL">length('jose', 'UTF8')</tt></td>
+
+          <td><tt class="LITERAL">4</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">lpad(<tt class="PARAMETER">string</tt>
+          <tt class="TYPE">text</tt>, <tt class="PARAMETER">length</tt> <tt class="TYPE">int</tt>
+          [<span class="OPTIONAL">, <tt class="PARAMETER">fill</tt>
+          <tt class="TYPE">text</tt></span>])</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Fill up the <tt class="PARAMETER">string</tt> to
+          length <tt class="PARAMETER">length</tt> by prepending
+          the characters <tt class="PARAMETER">fill</tt> (a space
+          by default). If the <tt class="PARAMETER">string</tt> is
+          already longer than <tt class="PARAMETER">length</tt>
+          then it is truncated (on the right).</td>
+
+          <td><tt class="LITERAL">lpad('hi', 5, 'xy')</tt></td>
+
+          <td><tt class="LITERAL">xyxhi</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">ltrim(<tt class="PARAMETER">string</tt>
+          <tt class="TYPE">text</tt> [<span class="OPTIONAL">,
+          <tt class="PARAMETER">characters</tt> <tt class="TYPE">text</tt></span>])</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Remove the longest string containing only characters
+          from <tt class="PARAMETER">characters</tt> (a space by
+          default) from the start of <tt class="PARAMETER">string</tt></td>
+
+          <td><tt class="LITERAL">ltrim('zzzytrim',
+          'xyz')</tt></td>
+
+          <td><tt class="LITERAL">trim</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">md5(<tt class="PARAMETER">string</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Calculates the MD5 hash of <tt class="PARAMETER">string</tt>, returning the result in
+          hexadecimal</td>
+
+          <td><tt class="LITERAL">md5('abc')</tt></td>
+
+          <td><tt class="LITERAL">900150983cd24fb0
+          d6963f7d28e17f72</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">pg_client_encoding()</code></tt></td>
+
+          <td><tt class="TYPE">name</tt></td>
+
+          <td>Current client encoding name</td>
+
+          <td><tt class="LITERAL">pg_client_encoding()</tt></td>
+
+          <td><tt class="LITERAL">SQL_ASCII</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">quote_ident(<tt class="PARAMETER">string</tt>
+          <tt class="TYPE">text</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Return the given string suitably quoted to be used as
+          an identifier in an <acronym class="ACRONYM">SQL</acronym> statement string. Quotes are
+          added only if necessary (i.e., if the string contains
+          non-identifier characters or would be case-folded).
+          Embedded quotes are properly doubled. See also <a href="https://www.postgresql.org/docs/9.1/plpgsql-statements.html#PLPGSQL-QUOTE-LITERAL-EXAMPLE">Example
+          39-1</a>.</td>
+
+          <td><tt class="LITERAL">quote_ident('Foo bar')</tt></td>
+
+          <td><tt class="LITERAL">"Foo bar"</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">quote_literal(<tt class="PARAMETER">string</tt> <tt class="TYPE">text</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Return the given string suitably quoted to be used as
+          a string literal in an <acronym class="ACRONYM">SQL</acronym> statement string. Embedded
+          single-quotes and backslashes are properly doubled. Note
+          that <code class="FUNCTION">quote_literal</code> returns
+          null on null input; if the argument might be null,
+          <code class="FUNCTION">quote_nullable</code> is often
+          more suitable. See also <a href="https://www.postgresql.org/docs/9.1/plpgsql-statements.html#PLPGSQL-QUOTE-LITERAL-EXAMPLE">Example
+          39-1</a>.</td>
+
+          <td><tt class="LITERAL">quote_literal(E'O\'Reilly')</tt></td>
+
+          <td><tt class="LITERAL">'O''Reilly'</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">quote_literal(<tt class="PARAMETER">value</tt>
+          <tt class="TYPE">anyelement</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Coerce the given value to text and then quote it as a
+          literal. Embedded single-quotes and backslashes are
+          properly doubled.</td>
+
+          <td><tt class="LITERAL">quote_literal(42.5)</tt></td>
+
+          <td><tt class="LITERAL">'42.5'</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">quote_nullable(<tt class="PARAMETER">string</tt> <tt class="TYPE">text</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Return the given string suitably quoted to be used as
+          a string literal in an <acronym class="ACRONYM">SQL</acronym> statement string; or, if the
+          argument is null, return <tt class="LITERAL">NULL</tt>.
+          Embedded single-quotes and backslashes are properly
+          doubled. See also <a href="https://www.postgresql.org/docs/9.1/plpgsql-statements.html#PLPGSQL-QUOTE-LITERAL-EXAMPLE">Example
+          39-1</a>.</td>
+
+          <td><tt class="LITERAL">quote_nullable(NULL)</tt></td>
+
+          <td><tt class="LITERAL">NULL</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">quote_nullable(<tt class="PARAMETER">value</tt> <tt class="TYPE">anyelement</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Coerce the given value to text and then quote it as a
+          literal; or, if the argument is null, return <tt class="LITERAL">NULL</tt>. Embedded single-quotes and
+          backslashes are properly doubled.</td>
+
+          <td><tt class="LITERAL">quote_nullable(42.5)</tt></td>
+
+          <td><tt class="LITERAL">'42.5'</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">regexp_matches(<tt class="PARAMETER">string</tt> <tt class="TYPE">text</tt>,
+          <tt class="PARAMETER">pattern</tt> <tt class="TYPE">text</tt> [, <tt class="PARAMETER">flags</tt>
+          <tt class="TYPE">text</tt>])</code></tt></td>
+
+          <td><tt class="TYPE">setof text[]</tt></td>
+
+          <td>Return all captured substrings resulting from
+          matching a POSIX regular expression against the
+          <tt class="PARAMETER">string</tt>. See <a href="https://www.postgresql.org/docs/9.1/functions-matching.html#FUNCTIONS-POSIX-REGEXP">Section
+          9.7.3</a> for more information.</td>
+
+          <td><tt class="LITERAL">regexp_matches('foobarbequebaz',
+          '(bar)(beque)')</tt></td>
+
+          <td><tt class="LITERAL">{bar,beque}</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">regexp_replace(<tt class="PARAMETER">string</tt> <tt class="TYPE">text</tt>,
+          <tt class="PARAMETER">pattern</tt> <tt class="TYPE">text</tt>, <tt class="PARAMETER">replacement</tt>
+          <tt class="TYPE">text</tt> [, <tt class="PARAMETER">flags</tt> <tt class="TYPE">text</tt>])</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Replace substring(s) matching a POSIX regular
+          expression. See <a href="https://www.postgresql.org/docs/9.1/functions-matching.html#FUNCTIONS-POSIX-REGEXP">Section
+          9.7.3</a> for more information.</td>
+
+          <td><tt class="LITERAL">regexp_replace('Thomas',
+          '.[mN]a.', 'M')</tt></td>
+
+          <td><tt class="LITERAL">ThM</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">regexp_split_to_array(<tt class="PARAMETER">string</tt> <tt class="TYPE">text</tt>,
+          <tt class="PARAMETER">pattern</tt> <tt class="TYPE">text</tt> [, <tt class="PARAMETER">flags</tt>
+          <tt class="TYPE">text</tt> ])</code></tt></td>
+
+          <td><tt class="TYPE">text[]</tt></td>
+
+          <td>Split <tt class="PARAMETER">string</tt> using a POSIX
+          regular expression as the delimiter. See <a href="https://www.postgresql.org/docs/9.1/functions-matching.html#FUNCTIONS-POSIX-REGEXP">Section
+          9.7.3</a> for more information.</td>
+
+          <td><tt class="LITERAL">regexp_split_to_array('hello
+          world', E'\\s+')</tt></td>
+
+          <td><tt class="LITERAL">{hello,world}</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">regexp_split_to_table(<tt class="PARAMETER">string</tt> <tt class="TYPE">text</tt>,
+          <tt class="PARAMETER">pattern</tt> <tt class="TYPE">text</tt> [, <tt class="PARAMETER">flags</tt>
+          <tt class="TYPE">text</tt>])</code></tt></td>
+
+          <td><tt class="TYPE">setof text</tt></td>
+
+          <td>Split <tt class="PARAMETER">string</tt> using a POSIX
+          regular expression as the delimiter. See <a href="https://www.postgresql.org/docs/9.1/functions-matching.html#FUNCTIONS-POSIX-REGEXP">Section
+          9.7.3</a> for more information.</td>
+
+          <td><tt class="LITERAL">regexp_split_to_table('hello
+          world', E'\\s+')</tt></td>
+
+          <td>
+            <tt class="LITERAL">hello</tt>
+
+            <p><tt class="LITERAL">world</tt></p>(2 rows)
+          </td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">repeat(<tt class="PARAMETER">string</tt>
+          <tt class="TYPE">text</tt>, <tt class="PARAMETER">number</tt> <tt class="TYPE">int</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Repeat <tt class="PARAMETER">string</tt> the
+          specified <tt class="PARAMETER">number</tt> of times</td>
+
+          <td><tt class="LITERAL">repeat('Pg', 4)</tt></td>
+
+          <td><tt class="LITERAL">PgPgPgPg</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">replace(<tt class="PARAMETER">string</tt>
+          <tt class="TYPE">text</tt>, <tt class="PARAMETER">from</tt> <tt class="TYPE">text</tt>,
+          <tt class="PARAMETER">to</tt> <tt class="TYPE">text</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Replace all occurrences in <tt class="PARAMETER">string</tt> of substring <tt class="PARAMETER">from</tt> with substring <tt class="PARAMETER">to</tt></td>
+
+          <td><tt class="LITERAL">replace('abcdefabcdef', 'cd',
+          'XX')</tt></td>
+
+          <td><tt class="LITERAL">abXXefabXXef</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">reverse(<tt class="PARAMETER">str</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Return reversed string.</td>
+
+          <td><tt class="LITERAL">reverse('abcde')</tt></td>
+
+          <td><tt class="LITERAL">edcba</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">right(<tt class="PARAMETER">str</tt>
+          <tt class="TYPE">text</tt>, <tt class="PARAMETER">n</tt>
+          <tt class="TYPE">int</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Return last <tt class="REPLACEABLE c3">n</tt>
+          characters in the string. When <tt class="REPLACEABLE c3">n</tt> is negative, return all but first
+          |<tt class="REPLACEABLE c3">n</tt>| characters.</td>
+
+          <td><tt class="LITERAL">right('abcde', 2)</tt></td>
+
+          <td><tt class="LITERAL">de</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">rpad(<tt class="PARAMETER">string</tt>
+          <tt class="TYPE">text</tt>, <tt class="PARAMETER">length</tt> <tt class="TYPE">int</tt>
+          [<span class="OPTIONAL">, <tt class="PARAMETER">fill</tt>
+          <tt class="TYPE">text</tt></span>])</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Fill up the <tt class="PARAMETER">string</tt> to
+          length <tt class="PARAMETER">length</tt> by appending the
+          characters <tt class="PARAMETER">fill</tt> (a space by
+          default). If the <tt class="PARAMETER">string</tt> is
+          already longer than <tt class="PARAMETER">length</tt>
+          then it is truncated.</td>
+
+          <td><tt class="LITERAL">rpad('hi', 5, 'xy')</tt></td>
+
+          <td><tt class="LITERAL">hixyx</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">rtrim(<tt class="PARAMETER">string</tt>
+          <tt class="TYPE">text</tt> [<span class="OPTIONAL">,
+          <tt class="PARAMETER">characters</tt> <tt class="TYPE">text</tt></span>])</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Remove the longest string containing only characters
+          from <tt class="PARAMETER">characters</tt> (a space by
+          default) from the end of <tt class="PARAMETER">string</tt></td>
+
+          <td><tt class="LITERAL">rtrim('trimxxxx', 'x')</tt></td>
+
+          <td><tt class="LITERAL">trim</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">split_part(<tt class="PARAMETER">string</tt>
+          <tt class="TYPE">text</tt>, <tt class="PARAMETER">delimiter</tt> <tt class="TYPE">text</tt>,
+          <tt class="PARAMETER">field</tt> <tt class="TYPE">int</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Split <tt class="PARAMETER">string</tt> on <tt class="PARAMETER">delimiter</tt> and return the given field
+          (counting from one)</td>
+
+          <td><tt class="LITERAL">split_part('abc~@~def~@~ghi',
+          '~@~', 2)</tt></td>
+
+          <td><tt class="LITERAL">def</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">strpos(<tt class="PARAMETER">string</tt>,
+          <tt class="PARAMETER">substring</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">int</tt></td>
+
+          <td>Location of specified substring (same as <tt class="LITERAL">position(<tt class="PARAMETER">substring</tt>
+          in <tt class="PARAMETER">string</tt>)</tt>, but note the
+          reversed argument order)</td>
+
+          <td><tt class="LITERAL">strpos('high', 'ig')</tt></td>
+
+          <td><tt class="LITERAL">2</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">substr(<tt class="PARAMETER">string</tt>,
+          <tt class="PARAMETER">from</tt> [<span class="OPTIONAL">,
+          <tt class="PARAMETER">count</tt></span>])</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Extract substring (same as <tt class="LITERAL">substring(<tt class="PARAMETER">string</tt>
+          from <tt class="PARAMETER">from</tt> for <tt class="PARAMETER">count</tt>)</tt>)</td>
+
+          <td><tt class="LITERAL">substr('alphabet', 3,
+          2)</tt></td>
+
+          <td><tt class="LITERAL">ph</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">to_ascii(<tt class="PARAMETER">string</tt>
+          <tt class="TYPE">text</tt> [<span class="OPTIONAL">,
+          <tt class="PARAMETER">encoding</tt> <tt class="TYPE">text</tt></span>])</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Convert <tt class="PARAMETER">string</tt> to
+          <acronym class="ACRONYM">ASCII</acronym> from another
+          encoding (only supports conversion from <tt class="LITERAL">LATIN1</tt>, <tt class="LITERAL">LATIN2</tt>,
+          <tt class="LITERAL">LATIN9</tt>, and <tt class="LITERAL">WIN1250</tt> encodings)</td>
+
+          <td><tt class="LITERAL">to_ascii('Karel')</tt></td>
+
+          <td><tt class="LITERAL">Karel</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">to_hex(<tt class="PARAMETER">number</tt>
+          <tt class="TYPE">int</tt> or <tt class="TYPE">bigint</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Convert <tt class="PARAMETER">number</tt> to its
+          equivalent hexadecimal representation</td>
+
+          <td><tt class="LITERAL">to_hex(2147483647)</tt></td>
+
+          <td><tt class="LITERAL">7fffffff</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL"><code class="FUNCTION">translate(<tt class="PARAMETER">string</tt>
+          <tt class="TYPE">text</tt>, <tt class="PARAMETER">from</tt> <tt class="TYPE">text</tt>,
+          <tt class="PARAMETER">to</tt> <tt class="TYPE">text</tt>)</code></tt></td>
+
+          <td><tt class="TYPE">text</tt></td>
+
+          <td>Any character in <tt class="PARAMETER">string</tt>
+          that matches a character in the <tt class="PARAMETER">from</tt> set is replaced by the
+          corresponding character in the <tt class="PARAMETER">to</tt> set. If <tt class="PARAMETER">from</tt> is longer than <tt class="PARAMETER">to</tt>, occurrences of the extra characters
+          in <tt class="PARAMETER">from</tt> are removed.</td>
+
+          <td><tt class="LITERAL">translate('12345', '143',
+          'ax')</tt></td>
+
+          <td><tt class="LITERAL">a2x5</tt></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>See also the aggregate function <code class="FUNCTION">string_agg</code> in <a href="https://www.postgresql.org/docs/9.1/functions-aggregate.html">Section 9.18</a>.</p>
+
+  <div class="TABLE">
+    <a name="CONVERSION-NAMES" id="CONVERSION-NAMES"></a>
+
+    <p class="c2">Table 9-8. Built-in Conversions</p>
+
+    <table border="1" class="CALSTABLE">
+      <colgroup><col>
+      <col>
+      <col>
+
+      </colgroup><thead>
+        <tr>
+          <th>Conversion Name <a name="AEN9663" href="https://www.postgresql.org/docs/9.1/functions-string.html#FTN.AEN9663" id="AEN9663"><span class="footnote">[a]</span></a></th>
+
+          <th>Source Encoding</th>
+
+          <th>Destination Encoding</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td><tt class="LITERAL">ascii_to_mic</tt></td>
+
+          <td><tt class="LITERAL">SQL_ASCII</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">ascii_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">SQL_ASCII</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">big5_to_euc_tw</tt></td>
+
+          <td><tt class="LITERAL">BIG5</tt></td>
+
+          <td><tt class="LITERAL">EUC_TW</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">big5_to_mic</tt></td>
+
+          <td><tt class="LITERAL">BIG5</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">big5_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">BIG5</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">euc_cn_to_mic</tt></td>
+
+          <td><tt class="LITERAL">EUC_CN</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">euc_cn_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">EUC_CN</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">euc_jp_to_mic</tt></td>
+
+          <td><tt class="LITERAL">EUC_JP</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">euc_jp_to_sjis</tt></td>
+
+          <td><tt class="LITERAL">EUC_JP</tt></td>
+
+          <td><tt class="LITERAL">SJIS</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">euc_jp_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">EUC_JP</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">euc_kr_to_mic</tt></td>
+
+          <td><tt class="LITERAL">EUC_KR</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">euc_kr_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">EUC_KR</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">euc_tw_to_big5</tt></td>
+
+          <td><tt class="LITERAL">EUC_TW</tt></td>
+
+          <td><tt class="LITERAL">BIG5</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">euc_tw_to_mic</tt></td>
+
+          <td><tt class="LITERAL">EUC_TW</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">euc_tw_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">EUC_TW</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">gb18030_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">GB18030</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">gbk_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">GBK</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">iso_8859_10_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">LATIN6</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">iso_8859_13_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">LATIN7</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">iso_8859_14_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">LATIN8</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">iso_8859_15_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">LATIN9</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">iso_8859_16_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">LATIN10</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">iso_8859_1_to_mic</tt></td>
+
+          <td><tt class="LITERAL">LATIN1</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">iso_8859_1_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">LATIN1</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">iso_8859_2_to_mic</tt></td>
+
+          <td><tt class="LITERAL">LATIN2</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">iso_8859_2_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">LATIN2</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">iso_8859_2_to_windows_1250</tt></td>
+
+          <td><tt class="LITERAL">LATIN2</tt></td>
+
+          <td><tt class="LITERAL">WIN1250</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">iso_8859_3_to_mic</tt></td>
+
+          <td><tt class="LITERAL">LATIN3</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">iso_8859_3_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">LATIN3</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">iso_8859_4_to_mic</tt></td>
+
+          <td><tt class="LITERAL">LATIN4</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">iso_8859_4_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">LATIN4</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">iso_8859_5_to_koi8_r</tt></td>
+
+          <td><tt class="LITERAL">ISO_8859_5</tt></td>
+
+          <td><tt class="LITERAL">KOI8R</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">iso_8859_5_to_mic</tt></td>
+
+          <td><tt class="LITERAL">ISO_8859_5</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">iso_8859_5_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">ISO_8859_5</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">iso_8859_5_to_windows_1251</tt></td>
+
+          <td><tt class="LITERAL">ISO_8859_5</tt></td>
+
+          <td><tt class="LITERAL">WIN1251</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">iso_8859_5_to_windows_866</tt></td>
+
+          <td><tt class="LITERAL">ISO_8859_5</tt></td>
+
+          <td><tt class="LITERAL">WIN866</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">iso_8859_6_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">ISO_8859_6</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">iso_8859_7_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">ISO_8859_7</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">iso_8859_8_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">ISO_8859_8</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">iso_8859_9_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">LATIN5</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">johab_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">JOHAB</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">koi8_r_to_iso_8859_5</tt></td>
+
+          <td><tt class="LITERAL">KOI8R</tt></td>
+
+          <td><tt class="LITERAL">ISO_8859_5</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">koi8_r_to_mic</tt></td>
+
+          <td><tt class="LITERAL">KOI8R</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">koi8_r_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">KOI8R</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">koi8_r_to_windows_1251</tt></td>
+
+          <td><tt class="LITERAL">KOI8R</tt></td>
+
+          <td><tt class="LITERAL">WIN1251</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">koi8_r_to_windows_866</tt></td>
+
+          <td><tt class="LITERAL">KOI8R</tt></td>
+
+          <td><tt class="LITERAL">WIN866</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">koi8_u_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">KOI8U</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">mic_to_ascii</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+
+          <td><tt class="LITERAL">SQL_ASCII</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">mic_to_big5</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+
+          <td><tt class="LITERAL">BIG5</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">mic_to_euc_cn</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+
+          <td><tt class="LITERAL">EUC_CN</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">mic_to_euc_jp</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+
+          <td><tt class="LITERAL">EUC_JP</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">mic_to_euc_kr</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+
+          <td><tt class="LITERAL">EUC_KR</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">mic_to_euc_tw</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+
+          <td><tt class="LITERAL">EUC_TW</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">mic_to_iso_8859_1</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+
+          <td><tt class="LITERAL">LATIN1</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">mic_to_iso_8859_2</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+
+          <td><tt class="LITERAL">LATIN2</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">mic_to_iso_8859_3</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+
+          <td><tt class="LITERAL">LATIN3</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">mic_to_iso_8859_4</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+
+          <td><tt class="LITERAL">LATIN4</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">mic_to_iso_8859_5</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+
+          <td><tt class="LITERAL">ISO_8859_5</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">mic_to_koi8_r</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+
+          <td><tt class="LITERAL">KOI8R</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">mic_to_sjis</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+
+          <td><tt class="LITERAL">SJIS</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">mic_to_windows_1250</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+
+          <td><tt class="LITERAL">WIN1250</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">mic_to_windows_1251</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+
+          <td><tt class="LITERAL">WIN1251</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">mic_to_windows_866</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+
+          <td><tt class="LITERAL">WIN866</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">sjis_to_euc_jp</tt></td>
+
+          <td><tt class="LITERAL">SJIS</tt></td>
+
+          <td><tt class="LITERAL">EUC_JP</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">sjis_to_mic</tt></td>
+
+          <td><tt class="LITERAL">SJIS</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">sjis_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">SJIS</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">tcvn_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">WIN1258</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">uhc_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">UHC</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_ascii</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">SQL_ASCII</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_big5</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">BIG5</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_euc_cn</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">EUC_CN</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_euc_jp</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">EUC_JP</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_euc_kr</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">EUC_KR</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_euc_tw</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">EUC_TW</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_gb18030</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">GB18030</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_gbk</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">GBK</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_iso_8859_1</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">LATIN1</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_iso_8859_10</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">LATIN6</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_iso_8859_13</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">LATIN7</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_iso_8859_14</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">LATIN8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_iso_8859_15</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">LATIN9</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_iso_8859_16</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">LATIN10</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_iso_8859_2</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">LATIN2</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_iso_8859_3</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">LATIN3</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_iso_8859_4</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">LATIN4</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_iso_8859_5</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">ISO_8859_5</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_iso_8859_6</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">ISO_8859_6</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_iso_8859_7</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">ISO_8859_7</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_iso_8859_8</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">ISO_8859_8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_iso_8859_9</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">LATIN5</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_johab</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">JOHAB</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_koi8_r</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">KOI8R</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_koi8_u</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">KOI8U</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_sjis</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">SJIS</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_tcvn</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">WIN1258</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_uhc</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">UHC</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_windows_1250</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">WIN1250</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_windows_1251</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">WIN1251</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_windows_1252</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">WIN1252</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_windows_1253</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">WIN1253</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_windows_1254</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">WIN1254</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_windows_1255</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">WIN1255</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_windows_1256</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">WIN1256</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_windows_1257</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">WIN1257</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_windows_866</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">WIN866</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_windows_874</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">WIN874</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">windows_1250_to_iso_8859_2</tt></td>
+
+          <td><tt class="LITERAL">WIN1250</tt></td>
+
+          <td><tt class="LITERAL">LATIN2</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">windows_1250_to_mic</tt></td>
+
+          <td><tt class="LITERAL">WIN1250</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">windows_1250_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">WIN1250</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">windows_1251_to_iso_8859_5</tt></td>
+
+          <td><tt class="LITERAL">WIN1251</tt></td>
+
+          <td><tt class="LITERAL">ISO_8859_5</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">windows_1251_to_koi8_r</tt></td>
+
+          <td><tt class="LITERAL">WIN1251</tt></td>
+
+          <td><tt class="LITERAL">KOI8R</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">windows_1251_to_mic</tt></td>
+
+          <td><tt class="LITERAL">WIN1251</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">windows_1251_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">WIN1251</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">windows_1251_to_windows_866</tt></td>
+
+          <td><tt class="LITERAL">WIN1251</tt></td>
+
+          <td><tt class="LITERAL">WIN866</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">windows_1252_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">WIN1252</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">windows_1256_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">WIN1256</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">windows_866_to_iso_8859_5</tt></td>
+
+          <td><tt class="LITERAL">WIN866</tt></td>
+
+          <td><tt class="LITERAL">ISO_8859_5</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">windows_866_to_koi8_r</tt></td>
+
+          <td><tt class="LITERAL">WIN866</tt></td>
+
+          <td><tt class="LITERAL">KOI8R</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">windows_866_to_mic</tt></td>
+
+          <td><tt class="LITERAL">WIN866</tt></td>
+
+          <td><tt class="LITERAL">MULE_INTERNAL</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">windows_866_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">WIN866</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">windows_866_to_windows_1251</tt></td>
+
+          <td><tt class="LITERAL">WIN866</tt></td>
+
+          <td><tt class="LITERAL">WIN</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">windows_874_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">WIN874</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">euc_jis_2004_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">EUC_JIS_2004</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_euc_jis_2004</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">EUC_JIS_2004</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">shift_jis_2004_to_utf8</tt></td>
+
+          <td><tt class="LITERAL">SHIFT_JIS_2004</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">utf8_to_shift_jis_2004</tt></td>
+
+          <td><tt class="LITERAL">UTF8</tt></td>
+
+          <td><tt class="LITERAL">SHIFT_JIS_2004</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">euc_jis_2004_to_shift_jis_2004</tt></td>
+
+          <td><tt class="LITERAL">EUC_JIS_2004</tt></td>
+
+          <td><tt class="LITERAL">SHIFT_JIS_2004</tt></td>
+        </tr>
+
+        <tr>
+          <td><tt class="LITERAL">shift_jis_2004_to_euc_jis_2004</tt></td>
+
+          <td><tt class="LITERAL">SHIFT_JIS_2004</tt></td>
+
+          <td><tt class="LITERAL">EUC_JIS_2004</tt></td>
+        </tr>
+      </tbody>
+
+      <tbody><tr>
+        <td colspan="3">Notes:<br>
+        <a name="FTN.AEN9663" id="FTN.AEN9663">a.</a> The
+        conversion names follow a standard naming scheme: The
+        official name of the source encoding with all
+        non-alphanumeric characters replaced by underscores,
+        followed by <tt class="LITERAL">_to_</tt>, followed by the
+        similarly processed destination encoding name. Therefore,
+        the names might deviate from the customary encoding
+        names.<br></td>
+      </tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="NAVFOOTER">
+  <hr class="c1" width="100%">
+
+  <table summary="Footer navigation table" width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tbody><tr>
+      <td width="33%" align="left" valign="top"><a href="https://www.postgresql.org/docs/9.1/functions-math.html" accesskey="P">Prev</a></td>
+
+      <td width="34%" align="center" valign="top"><a href="https://www.postgresql.org/docs/9.1/index.html" accesskey="H">Home</a></td>
+
+      <td width="33%" align="right" valign="top"><a href="https://www.postgresql.org/docs/9.1/functions-binarystring.html" accesskey="N">Next</a></td>
+    </tr>
+
+    <tr>
+      <td width="33%" align="left" valign="top">Mathematical
+      Functions and Operators</td>
+
+      <td width="34%" align="center" valign="top"><a href="https://www.postgresql.org/docs/9.1/functions.html" accesskey="U">Up</a></td>
+
+      <td width="33%" align="right" valign="top">Binary String
+      Functions and Operators</td>
+    </tr>
+  </tbody></table>
+</div>
+
+          </div>
+          
+        </div> <!-- pgContentWrap -->
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <ul>
+              <li><a href="https://twitter.com/postgresql"><img src="./PostgreSQL_ Documentation_ 9.1_ String Functions and Operators_files/atpostgresql.png" alt="@postgresql"></a></li>
+              <li><a href="https://git.postgresql.org/gitweb/?p=postgresql.git"><img src="./PostgreSQL_ Documentation_ 9.1_ String Functions and Operators_files/git.png" alt="Git"></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Copyright -->
+      <div class="container">
+        <a href="https://www.postgresql.org/about/privacypolicy">Privacy Policy</a> |
+        <a href="https://www.postgresql.org/about/policies/coc/">Code of Conduct</a> |
+        <a href="https://www.postgresql.org/about/">About PostgreSQL</a> |
+        <a href="https://www.postgresql.org/about/contact/">Contact</a><br>
+        <p>Copyright © 1996-2021 The PostgreSQL Global Development Group</p>
+      </div>
+    </footer>
+    <script async="" src="./PostgreSQL_ Documentation_ 9.1_ String Functions and Operators_files/gtm.js.download"></script><script src="./PostgreSQL_ Documentation_ 9.1_ String Functions and Operators_files/jquery-3.4.1.slim.min.js.download"></script>
+    <script src="./PostgreSQL_ Documentation_ 9.1_ String Functions and Operators_files/popper-1.16.0.min.js.download"></script>
+    <script src="./PostgreSQL_ Documentation_ 9.1_ String Functions and Operators_files/bootstrap-4.4.1.min.js.download"></script>
+    <script src="./PostgreSQL_ Documentation_ 9.1_ String Functions and Operators_files/main.js.download"></script>
+  
+
+</body></html>

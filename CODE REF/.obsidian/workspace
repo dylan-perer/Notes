@@ -1,0 +1,116 @@
+{
+  "main": {
+    "id": "f06af9faf76ba58f",
+    "type": "split",
+    "children": [
+      {
+        "id": "4d60c44be761129e",
+        "type": "leaf",
+        "dimension": 16.78832116788321,
+        "state": {
+          "type": "outline",
+          "state": {}
+        }
+      },
+      {
+        "id": "f06dc72522b9bad0",
+        "type": "leaf",
+        "dimension": 83.21167883211679,
+        "state": {
+          "type": "empty",
+          "state": {}
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "fb7135e80433d263",
+    "type": "split",
+    "children": [
+      {
+        "id": "c7c3056378f6309c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3be703244c413665",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "dcf64942c78041ee",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "###",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": true,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 216
+  },
+  "right": {
+    "id": "6668deab14583078",
+    "type": "split",
+    "children": [
+      {
+        "id": "c08569ddef6f4773",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5566ab4f137af68e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "9490d2b113a91cc5",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "f06dc72522b9bad0",
+  "lastOpenFiles": [
+    "Screen+Shot+2016-04-17+at+12.22.49+PM (1).md",
+    "SQL/SQL Notes.md",
+    "Java/Java Notes.md",
+    "Screenshot 2022-02-19 195043.md",
+    "Interview Questions/Interview Notes.md",
+    "Linux/Linux Notes.md",
+    "img/java/Screenshot.md",
+    "HTML-CSS/CSS.md",
+    "HTML-CSS/HTML.md",
+    "img/htmlcss/Screenshot 2022-02-22 113918.png"
+  ]
+}

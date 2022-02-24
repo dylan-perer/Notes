@@ -6,20 +6,45 @@
       {
         "id": "4d60c44be761129e",
         "type": "leaf",
-        "dimension": 16.78832116788321,
+        "dimension": 17.0316301703163,
         "state": {
           "type": "outline",
-          "state": {}
+          "state": {
+            "file": "Spring/Spring Notes.md"
+          }
         }
       },
       {
-        "id": "f06dc72522b9bad0",
-        "type": "leaf",
-        "dimension": 83.21167883211679,
-        "state": {
-          "type": "empty",
-          "state": {}
-        }
+        "id": "c1ba6e944bbc5d69",
+        "type": "split",
+        "dimension": 82.9683698296837,
+        "children": [
+          {
+            "id": "2c411b1a9e56ba6e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Spring/Spring Notes.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "0e2b736a7f92c0cd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Spring/Spring Notes.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "direction": "horizontal"
       }
     ],
     "direction": "vertical"
@@ -75,6 +100,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Spring/Spring Notes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -90,7 +116,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Spring/Spring Notes.md"
+              }
             }
           }
         ]
@@ -100,17 +128,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "f06dc72522b9bad0",
+  "active": "0e2b736a7f92c0cd",
   "lastOpenFiles": [
+    "Spring/Spring Notes.md",
+    "HTML-CSS/HTML.md",
+    "HTML-CSS/CSS.md",
+    "Java/Java Notes.md",
     "Screen+Shot+2016-04-17+at+12.22.49+PM (1).md",
     "SQL/SQL Notes.md",
-    "Java/Java Notes.md",
     "Screenshot 2022-02-19 195043.md",
     "Interview Questions/Interview Notes.md",
     "Linux/Linux Notes.md",
-    "img/java/Screenshot.md",
-    "HTML-CSS/CSS.md",
-    "HTML-CSS/HTML.md",
-    "img/htmlcss/Screenshot 2022-02-22 113918.png"
+    "img/java/Screenshot.md"
   ]
 }

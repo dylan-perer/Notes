@@ -6,7 +6,7 @@
 /* Method is a block of code executed whenever it is called. 
 ````
 
-### What are methods overloading?
+## What are methods overloading?
 
 ````java
 /* Methods with the same name but take different signatures
@@ -104,10 +104,57 @@ i.e you have a string array and a integer array, with generics u can use one met
 ## What is spring-boot
 
 ```java
-// spring-boot is a java framework used to build enterprise-ready application
+// spring-boot is a java framework used to build an enterprise-ready application
 ```
 
 
+## What is hibernate (O.R.M)
+
+```java
+// A tool to map objects to a database table
+```
 
 
+### What is JDBC?
 
+```java
+// Java Database connection API
+// Handles querying DB 
+```
+
+### What is an Entity? 
+
+```java
+// Class that is mapped to a DB table
+```
+
+### What is a SessionFactory? 
+
+```java
+// Reads hibernate config and create session objects
+//Only created once in the application
+```
+### What is a Session? 
+
+```java
+// Wrapper around a JDBC connection
+// save & retrive | short lived
+```
+
+### What is Eager vs Lazy Loading? 
+
+```java
+// Eager loading will pull everything and their dependencies at once | could majorly affect performance
+// Lazy loading will pull the main entity first and load dependencies on demand
+```
+### What is a Data access object (DOA)? 
+
+```java
+// Responsible for interfacing with the database, Helper/utility class
+```
+
+# ::: JavaScript :::
+## What is JavaScript
+```js
+/* JS is a light-weight client-side and serverside scripting language, it doesn't need to be compiled like c++ or java*
+```

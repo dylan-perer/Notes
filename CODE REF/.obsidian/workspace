@@ -6,38 +6,38 @@
       {
         "id": "4d60c44be761129e",
         "type": "leaf",
-        "dimension": 16.54501216545012,
+        "dimension": 20.843230403800476,
         "state": {
           "type": "outline",
           "state": {
-            "file": "JavaScript/JavaScipt Notes.md"
+            "file": "React.js/React.js Notes.md"
           }
         }
       },
       {
-        "id": "d9f5edef6fe3630c",
+        "id": "d58469e83d892966",
         "type": "split",
-        "dimension": 83.45498783454988,
+        "dimension": 79.15676959619952,
         "children": [
           {
-            "id": "83fcaf6815592958",
+            "id": "d94dd5670e25f9d5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JavaScript/JavaScipt Notes.md",
+                "file": "React.js/React.js Notes.md",
                 "mode": "preview",
                 "source": false
               }
             }
           },
           {
-            "id": "d48b91cda7ba9955",
+            "id": "9e1b780ca5538b68",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JavaScript/JavaScipt Notes.md",
+                "file": "React.js/React.js Notes.md",
                 "mode": "source",
                 "source": false
               }
@@ -71,7 +71,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "###",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -84,7 +84,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 216
+    "width": 176
   },
   "right": {
     "id": "6668deab14583078",
@@ -100,7 +100,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JavaScript/JavaScipt Notes.md",
+                "file": "React.js/React.js Notes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -117,7 +117,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/JavaScipt Notes.md"
+                "file": "React.js/React.js Notes.md"
               }
             }
           }
@@ -128,17 +128,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "d48b91cda7ba9955",
+  "active": "4d60c44be761129e",
   "lastOpenFiles": [
-    "JavaScript/JavaScipt Notes.md",
-    "Interview Questions/Interview Notes.md",
+    "React.js/React.js Notes.md",
     "Java/Java Notes.md",
-    "Spring/Spring Notes.md",
-    "SQL/SQL Notes.md",
-    "HTML-CSS/HTML.md",
+    "React.js/React.js Notes 1.md",
+    "JavaScript/JavaScipt Notes.md",
     "HTML-CSS/CSS.md",
-    "Screen+Shot+2016-04-17+at+12.22.49+PM (1).md",
-    "Screenshot 2022-02-19 195043.md",
-    "Linux/Linux Notes.md"
+    "Spring/Spring Notes.md",
+    "PHP/PHP Notes.md",
+    "HTML-CSS/HTML.md",
+    "Interview Questions/Interview Notes.md",
+    "SQL/SQL Notes.md"
   ]
 }

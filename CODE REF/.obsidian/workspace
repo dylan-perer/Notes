@@ -6,38 +6,40 @@
       {
         "id": "4d60c44be761129e",
         "type": "leaf",
-        "dimension": 20.843230403800476,
+        "dimension": 20.33898305084746,
         "state": {
           "type": "outline",
           "state": {
-            "file": "React.js/React.js Notes.md"
+            "file": "dotNet/C-sharp Theory.md"
           }
         }
       },
       {
-        "id": "d58469e83d892966",
+        "id": "4a98a5097f85ecfa",
         "type": "split",
-        "dimension": 79.15676959619952,
+        "dimension": 79.66101694915254,
         "children": [
           {
-            "id": "d94dd5670e25f9d5",
+            "id": "be43cfaa41c91007",
             "type": "leaf",
+            "dimension": 40.38461538461539,
             "state": {
               "type": "markdown",
               "state": {
-                "file": "React.js/React.js Notes.md",
-                "mode": "preview",
+                "file": "dotNet/C-sharp Notes.md",
+                "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "9e1b780ca5538b68",
+            "id": "7b501b9cd156e648",
             "type": "leaf",
+            "dimension": 59.61538461538461,
             "state": {
               "type": "markdown",
               "state": {
-                "file": "React.js/React.js Notes.md",
+                "file": "dotNet/C-sharp Theory.md",
                 "mode": "source",
                 "source": false
               }
@@ -84,7 +86,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 176
+    "width": 267,
+    "collapsed": true
   },
   "right": {
     "id": "6668deab14583078",
@@ -100,7 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "React.js/React.js Notes.md",
+                "file": "dotNet/C-sharp Theory.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -117,7 +120,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "React.js/React.js Notes.md"
+                "file": "dotNet/C-sharp Theory.md"
               }
             }
           }
@@ -128,17 +131,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "4d60c44be761129e",
+  "active": "7b501b9cd156e648",
   "lastOpenFiles": [
-    "React.js/React.js Notes.md",
+    "dotNet/C-sharp Theory.md",
+    "dotNet/C-sharp Notes.md",
+    "dotNet/ASP.NET Notes.md",
+    "Interview Questions/TODOS.md",
+    "Spring/CRM Project.md",
+    "Spring/Codex Project (REST API).md",
+    "SQL/SQL(MySQL) Notes.md",
+    "SQL/SQL Server.md",
     "Java/Java Notes.md",
-    "React.js/React.js Notes 1.md",
-    "JavaScript/JavaScipt Notes.md",
-    "HTML-CSS/CSS.md",
-    "Spring/Spring Notes.md",
-    "PHP/PHP Notes.md",
-    "HTML-CSS/HTML.md",
-    "Interview Questions/Interview Notes.md",
-    "SQL/SQL Notes.md"
+    "Spring/Spring Notes.md"
   ]
 }

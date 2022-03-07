@@ -23,6 +23,7 @@
 
 ```shell
 npx create-react-app app-name;
+npx create-react-app ts-demo --template typescript; # typescript
 npm start
 ```
 
@@ -201,6 +202,39 @@ const Book = ({title, img, author, children}) => {//children is a property of pr
   );
 };
 ```
+
+### Prop Types (validating props)
+```jsx
+import React from 'react';
+import PropTypes from 'prop-types';//1. import prop types module
+import defaultImage from '../../../assets/default-image.jpeg';
+
+const Product = ({ image, name, price }) => {
+  const url = image && image.url;//if image object and image.url exists
+  return (
+    <article className='product'>
+      <img src={url || defaultImage} alt={name || 'default name'} />
+      <h4>{name}</h4>
+      <p>${price || 3.99}</p>{/**show price if exists, if not show default */}
+    </article>
+  );
+};
+
+//2. setting what props are required | now program wont break but returns warnings if something required is missing
+Product.propTypes = {
+  image: PropTypes.object.isRequired,
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+};
+//3. defaults, if we want to setup up incase prop required fails
+Product.defaultProps = {
+  name: 'default name',
+  price: 3.99,
+  image: defaultImage,
+};
+
+export default Product;
+```
 ## Displaying a list
 ```jsx
 const booksData = [/*objetcs...*/];
@@ -251,10 +285,7 @@ const Book = ({img, author, title}) => {
 };
   
 ```
-# ::: Advanced :::
-```jsx
-//code
-```
+
 ## Hooks
 ### Why use hooks?
 ```jsx
@@ -402,21 +433,196 @@ function App() {
 ```
 
 ### Use Ref
-#### Why use
+#### Why use UseRef
 ```jsx
-//code
+import React, { useEffect, useRef } from 'react';
+// similar to useState
+// DOES NOT trigger re-render
+// target DOM nodes/elements
+const UseRefBasics = () => {
+  const refContainer = useRef(null);
+
+  //set focus on input field
+  useEffect(() => {
+    console.log(refContainer.current);//this is return the DOM element i.e. <h1>text</h1>
+    refContainer.current.focus();//we can just call it inside useEffect, useRef doesn't rerender 
+  });
+
+  return (
+    <>
+      <form className='form' onSubmit={handleSubmit}>
+        <div>
+          {/**ref can be used on any html element */}
+          <input type='text' ref={refContainer} />
+        </div>
+        <button type='submit'>submit</button>
+      </form>
+    </>
+  );
+};
+
+export default UseRefBasics;
+
 ```
 
-#### title
+### Use Reducer
+#### Why use UseReducer
 ```jsx
-//code
+//use reducer is very similar to useState()
+//it will cause a rerender
+
+import { useReducer } from "react";
+import ReactDOM from "react-dom";
+
+const initialTodos = [
+  {
+    id: 1,
+    title: "Todo 1",
+    complete: false,
+  },
+  {
+    id: 2,
+    title: "Todo 2",
+    complete: false,
+  },
+];
+
+const reducer = (state, action) => {//reducer handler
+  switch (action.type) {
+    case "COMPLETE"://action name
+      return state.map((todo) => {
+        if (todo.id === action.id) {
+          return { ...todo, complete: !todo.complete };
+        } else {
+          return todo;
+        }
+      });
+    default:
+      return state;
+  }
+};
+
+function Todos() {
+  const [todos, dispatch] = useReducer(reducer, initialTodos);
+
+  const handleComplete = (todo) => {
+    dispatch({ type: "COMPLETE", id: todo.id });//calling dispatch on reducer
+  };
+
+  return (
+    <>
+      {todos.map((todo) => (
+        <div key={todo.id}>
+          <label>
+            <input
+              type="checkbox"
+              checked={todo.complete}
+              onChange={() => handleComplete(todo)}
+            />
+            {todo.title}
+          </label>
+        </div>
+      ))}
+    </>
+  );
+}
+
+ReactDOM.render(<Todos />, document.getElementById('root'));
 ```
 
-#### title
+### Use Context
+#### Why use UseContext
 ```jsx
-//code
+/*
+	TO PASS DATA
+	removes drop drilling (passing DATA all the way from TOP component to the BOTTOM)
+*/
+import React, { useState, useContext } from 'react';
+import { data } from '../../../data';
+// more components
+// fix - context api, redux (for more complex cases)
+
+const PersonContext = React.createContext();
+// two components - Provider, Consumer
+
+const ContextAPI = () => {
+  const [people, setPeople] = useState(data);
+  const removePerson = (id) => {
+    setPeople((people) => {
+      return people.filter((person) => person.id !== id);
+    });
+  };
+  return (
+    //wrap the root component with context we created and pass the values
+    <PersonContext.Provider value={{ removePerson, people }}>
+      <h3>Context API / useContext</h3>
+      <List />
+    </PersonContext.Provider>
+  );
+};
+
+const List = () => {
+  const mainData = useContext(PersonContext);
+  console.log(mainData);
+  return (
+    <>
+      {mainData.people.map((person) => {
+        return <SinglePerson key={person.id} {...person} />;
+      })}
+    </>
+  );
+};
+
+const SinglePerson = ({ id, name }) => {
+  const { removePerson } = useContext(PersonContext); //here we have the data from the context
+
+  return (
+    <div className='item'>
+      <h4>{name}</h4>
+      <button onClick={() => removePerson(id)}>remove</button>
+    </div>
+  );
+};
+
+export default ContextAPI;
+
 ```
 
+### Custom hooks
+#### Why use custom hooks
+```jsx
+//to create custom functionality to your website
+//heere is a custom fetch hook
+import { useState, useEffect, useCallback } from 'react';
+
+//make sure to name it use[Name]
+export const useFetch = (url) => {
+  const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState([]);
+
+  const getProducts = useCallback(async () => {
+    //fetch the data
+    const response = await fetch(url);
+    const products = await response.json();
+    setProducts(products);
+
+    setLoading(false);
+  }, [url]);
+
+  useEffect(() => {
+    getProducts();
+  }, [url, getProducts]);//every time we pass a new url useEffect will run
+
+  //return the states
+  return { loading, products };
+};
+
+
+//using the hook outside
+const { loading, products } = useFetch(url)
+console.log(products)
+
+```
 ## Forms
 ```jsx
 import React, {useState} from "react";
@@ -537,14 +743,101 @@ export default ControlledInputs;
 
 ```
 
-## Title
+## Router
+### Installing react-router
+```shell
+npm i react-router-dom
+```
+
 ```jsx
+import React from "react";
+//import react router
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from "react-router-dom/cjs/react-router-dom.min";
+//pages
+import Home from "./tutorial/11-react-router/setup/Home";
+import About from "./tutorial/11-react-router/setup/About";
+import Error from "./tutorial/11-react-router/setup/Error";
+import Navbar from "./tutorial/11-react-router/setup/Navbar";
+
+function App() {
+  return (
+    <Router>
+      <Navbar/>
+      <Switch>{/**only the first one that matches gets displayed */}
+        <Route exact path={"/"}>{/**add exact so it does match with other paths / */}
+          <Home />
+        </Route>
+        <Route exact path={"/about"}>
+          <About />
+        </Route>
+        <Route path="*">
+          <Error />
+        </Route>
+      </Switch>
+    </Router>
+  );
+}
+
+export default App;
 
 ```
 
-## Title
 ```jsx
+//Nav
+import React from "react";
+import { Link } from "react-router-dom";
+//make sure to use react-router <Link/> components for <a> tags
+const Navbar = () => {
+  return (
+    <nav>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+      </ul>
+    </nav>
+  );
+};
 
+export default Navbar;
+```
+### Dynamic URLs (lists)
+```jsx
+//  1. add routes to the Router
+<Route exact path={"/people"}><People/></Route>{/**people is a list */}
+<Route exact path="/person/:id" children={<Person/>}>{/**person will be the item with a dynamic url */}
+
+{/* 2.  inside the array add a link element to the items*/}
+{people.map((person) => {
+return (
+  <div key={person.id} className='item'>
+	<h4>{person.name}</h4>
+	<Link to={`./person/${person.id}`}>See more info</Link>
+  </div>
+);
+
+{/* 3. accessing url parameter from the item*/}
+import { Link, useParams } from 'react-router-dom';
+const Person = () => {
+  const { id } = useParams();//get this from url passed down from list
+  return (
+    <div>
+      <h2>{id}</h2>
+      <h2>person</h2>
+    </div>
+  );
+};
+```
+## Optimization
+```jsx
+// use memo's and callback to optimize
 ```
 
 ## Title

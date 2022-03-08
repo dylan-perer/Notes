@@ -55,7 +55,7 @@
 ## Casting
 ```c#
 /*
-	- There are two types of casting
+	~ There are two types of casting
 		- Implicit, no data loss
 		- Explicit, some data loss
 */
@@ -81,10 +81,10 @@ int i = Conver.ToInt32(str);
 ## Class & Objects
 ```c#
 /*
-	- Class
+	~ Class
 		- A class is a blueprint, a tempplate
 		- It has attributes & methods defined
-	- Object
+	~ Object
 		- Object is a instance of a class
 		- If we want to use a class we must create a instance of it
 *
@@ -100,13 +100,13 @@ int i = Conver.ToInt32(str);
 ## Value & Reference types
 ```c#
 /*
-	- Value types:
+	~ Value types:
 		- Are copied and are stored in the stack
 		- points to different address
 		- example would be a int
 		- static size
 
-	- Reference types:
+	~ Reference types:
 		- Are not copied and are stored in the heap
 		- points to the same address
 		- example would be a object
@@ -117,7 +117,7 @@ int i = Conver.ToInt32(str);
 ## Garbage collection
 ```c#
 /*
-	- Handles the process of memory management
+	~ Handles the process of memory management
 		- Clears out memory allocations that doesn't have reference
 */
 ```
@@ -133,7 +133,7 @@ int i = Conver.ToInt32(str);
 [[C-sharp Notes#Struct]]
 ```c#
 /*
-	- Is a composite VALUE TYPE
+	~ Is a composite VALUE TYPE
 		- Can have methods and variables
 */
 
@@ -142,9 +142,9 @@ int i = Conver.ToInt32(str);
 ## Boxing & Unboxing
 ```c#
 /*
-	- Boxing
+	~ Boxing
 		- converting a VALUE TYPE a REFERNECE TYPE
-	- Unboxing
+	~ Unboxing
 		- converting a REFERNCE TYPE to a VALUE TYPE
 *
 ```
@@ -153,9 +153,9 @@ int i = Conver.ToInt32(str);
 [[C-sharp Notes#Collections]]
 ```c#
 /*
-	- ArrayList
+	~ ArrayList
 		- Boxing occurs
-	- List 
+	~ List 
 		- Is better no boxing happens but we must pass the data type
 *
 ```
@@ -172,9 +172,9 @@ int i = Conver.ToInt32(str);
 ### Foreground Vs Background thread
 ```c#
 /*      
-	- Foreground Thread
+	~ Foreground Thread
 		- A thread that is fully executed
-	- Background Thread
+	~ Background Thread
 		- A low priority thread that will get killed when all the foreground threads are fully executed.
 */
 ```
@@ -189,10 +189,10 @@ int i = Conver.ToInt32(str);
 ### Auto & Manual reset event
 ```c#
 /*
-	- Allows achieving sychnozation using signaling
-		- Auto-reset
+	~ Allows achieving sychnozation using signaling
+		> Auto-reset
 			- Turn style gate, one person can enter at a time
-		-  Manual-reset
+		> Manual-reset
 			- Ordanary gate, everyone rush in
 */
 ```
@@ -217,7 +217,7 @@ int i = Conver.ToInt32(str);
 [[C-sharp Notes#Async Await]]
 ```c#
 /*
-	- Eliminate default synchronous code where everything has to be done sequentially
+	~ Eliminate default synchronous code where everything has to be done sequentially
 		- calls back when await is done
 		- Runs on the same thread
 		- acts as a background thread but does not create a thread
@@ -228,21 +228,21 @@ int i = Conver.ToInt32(str);
 [[C-sharp Notes#Delegate]]
 ```c#
 /*
-	- A pointer to a function
+	~ A pointer to a function
 		- similar to a callback funtion
 *
 ```
 #### Multicast delegate
 ```c#
 /*
-	- Sends callbacks to multiple callers 
+	~ Sends callbacks to multiple callers 
 		- BI-DIRECTIONAL communication
 *
 ```
 ### Event
 ```c#
 /*
-	- Sends callbacks to multiple callers 
+	~ Sends callbacks to multiple callers 
 		- UNI-DIRECTIONAL communication
 *
 ```
@@ -250,7 +250,7 @@ int i = Conver.ToInt32(str);
 ## Anonymous function
 ```c#
 /*
-	- Function without a name
+	~ Function without a name
 		- Usecase, only needs to be called once
 *
 ```
@@ -283,7 +283,7 @@ int i = Conver.ToInt32(str);
 ## LINQ (Language integrated query)
 ```c#
 /*
-	- write (sql) queries inside .Net that can be execetued on:
+	~ write (sql) queries inside .Net that can be execetued on:
 		- xml
 		- RDBMS
 		- collentions
@@ -296,7 +296,7 @@ string str = "";// this is a alias of String class
 String str2 = ""; 
 
 /*
-	- Strings are immutable(CAN NOT BE CHANGED)
+	~ Strings are immutable(CAN NOT BE CHANGED)
 		- It creates a new copy each time assigned
 */
 string a = "cat";

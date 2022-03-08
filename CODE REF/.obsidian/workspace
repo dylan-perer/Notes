@@ -15,38 +15,17 @@
         }
       },
       {
-        "id": "4a98a5097f85ecfa",
-        "type": "split",
+        "id": "be43cfaa41c91007",
+        "type": "leaf",
         "dimension": 79.66101694915254,
-        "children": [
-          {
-            "id": "be43cfaa41c91007",
-            "type": "leaf",
-            "dimension": 40.38461538461539,
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "dotNet/C-sharp Notes.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "7b501b9cd156e648",
-            "type": "leaf",
-            "dimension": 59.61538461538461,
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "dotNet/C-sharp Theory.md",
-                "mode": "source",
-                "source": false
-              }
-            }
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "dotNet/C-sharp Theory.md",
+            "mode": "source",
+            "source": false
           }
-        ],
-        "direction": "horizontal"
+        }
       }
     ],
     "direction": "vertical"
@@ -131,17 +110,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "7b501b9cd156e648",
+  "active": "be43cfaa41c91007",
   "lastOpenFiles": [
     "dotNet/C-sharp Theory.md",
     "dotNet/C-sharp Notes.md",
+    "JavaScript/JavaScipt Notes.md",
     "dotNet/ASP.NET Notes.md",
     "Interview Questions/TODOS.md",
     "Spring/CRM Project.md",
     "Spring/Codex Project (REST API).md",
     "SQL/SQL(MySQL) Notes.md",
     "SQL/SQL Server.md",
-    "Java/Java Notes.md",
-    "Spring/Spring Notes.md"
+    "Java/Java Notes.md"
   ]
 }

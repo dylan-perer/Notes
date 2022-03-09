@@ -10,7 +10,7 @@
 ```c#
 /*
 	> C# is a language
-	> dotNET is a framework, you can thnk a framework as a big bag of libraries
+	> dotNET is a framework, you can think a framework as a big bag of libraries
 *
 ```
 
@@ -67,8 +67,10 @@ Console.WriteLine(a);
 ```
 ### Conversion
 ```c#
-String str = "911";
-int i = Conver.ToInt32(str);
+/*
+	- String str = "911";
+	- int i = Conver.ToInt32(str);
+*/
 ```
 ### Singed vs Unsigned
 ```c#

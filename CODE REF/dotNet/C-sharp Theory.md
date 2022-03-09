@@ -306,3 +306,18 @@ Console.WriteLine(a);
 	> If the string value is the same no copy is created
 *
 ``` 
+
+## Constants
+```c#
+/*
+	> Constant variables can be only assigned once
+		- Cannot be changed later
+*/
+```
+
+### Enum
+```c#
+/*
+	> A Enum is a group of related constants
+*/
+```

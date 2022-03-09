@@ -1,7 +1,7 @@
 ## .NET Core vs .NET Framework
 ```c#
 /*
-	> dotNET core is cross-platform where .NET Framework is windows only
+	>> .NET core is cross-platform where .NET Framework is windows only
 	> Now they are both packaged together
 *
 ```
@@ -10,7 +10,7 @@
 ```c#
 /*
 	> C# is a language
-	> dotNET is a framework, you can thnk a framework as a big bag of libraries
+	>.NEt is a framework, you can thnk a framework as a big bag of libraries
 *
 ```
 
@@ -20,16 +20,16 @@
 	> our C# code gets converted to an INTERMEDIATE LANGUAGE(IL code) --- BUILD PROCESS
 	> Then when the application actually runs JIT will come and compile IL code to machine code --- RUN PROGRAM
 
-	> C# => NTERMEDIATE LANGUAGE(IL code) => JIT => (01100) Machine code
+	--> C# => NTERMEDIATE LANGUAGE(IL code) => JIT => (01100) Machine code
 *
 ```
 
 ## .DLL
 ```c#
 /*
-	> DLL can be added as a dependency to other projects
-	> Pure functionality code
-	> No UI attached to it
+	- DLL can be added as a dependency to other projects
+	- Pure functionality code
+	- No UI attached to it
 *
 ```
 
@@ -38,16 +38,16 @@
 
 ```c#
 /*
-	> it brings the data types to a common ground of different.NET languages
-	> A integer defined in C#, F# or VB, when it compiled to the INTERMEDIATE LANGUAGE(IL) it is the same (i.e. int32)
+	- it brings the data types to a common ground of different.NET languages
+	- A integer defined in C#, F# or VB, when it compiled to the INTERMEDIATE LANGUAGE(IL) it is the same (i.e. int32)
 *
 ```
 
 ## CLS (Common language specification)
 ```c#
 /*
-	> If we want to write a program that uses multiple.NET languages we have to follow a CLS
-	> It GOVERNS WHAT TO DO and WHAT TO AVOID if we want to use MULTIPLE LANGUAGES in ONE program
+	- If we want to write a program that uses multiple.NET languages we have to follow a CLS
+	- It GOVERNS WHAT TO DO and WHAT TO AVOID if we want to use MULTIPLE LANGUAGES in ONE program
 */
 [assembly: CLSCompliant(true)]//we can add this decorator to get editor warnings to make out code CLS compliant
 ```
@@ -55,7 +55,7 @@
 ## Casting
 ```c#
 /*
-	> There are two types of casting
+	~ There are two types of casting
 		- Implicit, no data loss
 		- Explicit, some data loss
 */
@@ -73,18 +73,18 @@ int i = Conver.ToInt32(str);
 ### Singed vs Unsigned
 ```c#
 /*
-	> Unsigned means not negative values, it can hold a larger positive value
-	> Signed can hold both positive and negative
+	- Unsigned means not negative values, it can hold a larger positive value
+	- Signed can hold both positive and negative
 *
 ```
 
 ## Class & Objects
 ```c#
 /*
-	> Class
+	~ Class
 		- A class is a blueprint, a tempplate
 		- It has attributes & methods defined
-	> Object
+	~ Object
 		- Object is a instance of a class
 		- If we want to use a class we must create a instance of it
 *
@@ -93,20 +93,20 @@ int i = Conver.ToInt32(str);
 ## Namespace
 ```c#
 /*
-	> Namespaces are used to group relative classes together
+	- Namespaces are used to group relative classes together
 *
 ```
 
 ## Value & Reference types
 ```c#
 /*
-	> Value types:
+	~ Value types:
 		- Are copied and are stored in the stack
 		- points to different address
 		- example would be a int
 		- static size
 
-	> Reference types:
+	~ Reference types:
 		- Are not copied and are stored in the heap
 		- points to the same address
 		- example would be a object
@@ -117,7 +117,7 @@ int i = Conver.ToInt32(str);
 ## Garbage collection
 ```c#
 /*
-	> Handles the process of memory management
+	~ Handles the process of memory management
 		- Clears out memory allocations that doesn't have reference
 */
 ```
@@ -125,15 +125,15 @@ int i = Conver.ToInt32(str);
 ## Stack Vs Heap
 ```c#
 /*
-	> Heap stores reference types
-	> Stack stores value types & pointers of reference types
+	- Heap stores reference types
+	- Stack stores value types & pointers of reference types
 ```
 
 ## Struct
 [[C-sharp Notes#Struct]]
 ```c#
 /*
-	> Is a composite VALUE TYPE
+	~ Is a composite VALUE TYPE
 		- Can have methods and variables
 */
 
@@ -142,9 +142,9 @@ int i = Conver.ToInt32(str);
 ## Boxing & Unboxing
 ```c#
 /*
-	> Boxing
+	~ Boxing
 		- converting a VALUE TYPE a REFERNECE TYPE
-	> Unboxing
+	~ Unboxing
 		- converting a REFERNCE TYPE to a VALUE TYPE
 *
 ```
@@ -153,9 +153,9 @@ int i = Conver.ToInt32(str);
 [[C-sharp Notes#Collections]]
 ```c#
 /*
-	> ArrayList
+	~ ArrayList
 		- Boxing occurs
-	> List 
+	~ List 
 		- Is better no boxing happens but we must pass the data type
 *
 ```
@@ -164,17 +164,17 @@ int i = Conver.ToInt32(str);
 [[C-sharp Notes#Threading]]
 ```c#
 /*
-	> Threading is used when we want to run code parallelly
-	> Runs on the same core (time slicing)
+	- Threading is used when we want to run code parallelly
+	- Runs on the same core (time slicing)
 
 ```
 
 ### Foreground Vs Background thread
 ```c#
 /*      
-	> Foreground Thread
+	~ Foreground Thread
 		- A thread that is fully executed
-	> Background Thread
+	~ Background Thread
 		- A low priority thread that will get killed when all the foreground threads are fully executed.
 */
 ```
@@ -189,27 +189,27 @@ int i = Conver.ToInt32(str);
 ### Auto & Manual reset event
 ```c#
 /*
-	> Allows achieving sychnozation using signaling
-	> Auto-reset
-		 Turn style gate, one person can enter at a time
-	> Manual-reset
-		- Ordanary gate, everyone rush in
+	~ Allows achieving sychnozation using signaling
+		> Auto-reset
+			- Turn style gate, one person can enter at a time
+		> Manual-reset
+			- Ordanary gate, everyone rush in
 */
 ```
 
 ### Thread pooling
 ```c#
 /*
-	> Reuses threads, rather than creating and destroying them each time
-	> Performance gains
-	> Can set a limit
+	- Reuses threads, rather than creating and destroying them each time
+	- Performance gains
+	- Can set a limit
 *
 ```
 
 ## Task (TPL)
 ```c#
 /*
-	> Doesn't have thread affinity, where it tries to run in the same core
+	- Doesn't have thread affinity, where it tries to run in the same core
 */
 ```
 
@@ -217,7 +217,7 @@ int i = Conver.ToInt32(str);
 [[C-sharp Notes#Async Await]]
 ```c#
 /*
-	> Eliminate default synchronous code where everything has to be done sequentially
+	~ Eliminate default synchronous code where everything has to be done sequentially
 		- calls back when await is done
 		- Runs on the same thread
 		- acts as a background thread but does not create a thread
@@ -228,21 +228,21 @@ int i = Conver.ToInt32(str);
 [[C-sharp Notes#Delegate]]
 ```c#
 /*
-	> A pointer to a function
+	~ A pointer to a function
 		- similar to a callback funtion
 *
 ```
 #### Multicast delegate
 ```c#
 /*
-	> Sends callbacks to multiple callers 
+	~ Sends callbacks to multiple callers 
 		- BI-DIRECTIONAL communication
 *
 ```
 ### Event
 ```c#
 /*
-	> Sends callbacks to multiple callers 
+	~ Sends callbacks to multiple callers 
 		- UNI-DIRECTIONAL communication
 *
 ```
@@ -250,40 +250,40 @@ int i = Conver.ToInt32(str);
 ## Anonymous function
 ```c#
 /*
-	> Function without a name
+	~ Function without a name
 		- Usecase, only needs to be called once
 *
 ```
 ### Lambda expression
 ```c#
 /*
-	> Is an inline function
+	- Is an inline function
 *
 ```
 ### Func
 ```c#
 /*
-	> A type of delegate can declare inputs and outputs
+	- A type of delegate, can declare inputs and outputs
 *
 ```
 
 ### Action
 ```c#
 /*
-	> Same as a func but the return type is always void
+	- Same as a func but the return type is always void
 *
 ```
 ### Predicate
 ```c#
 /*
-	> A type of delegate that can only return a boolean
+	- A type of delegate that can only return a boolean
 *
 ```
 
 ## LINQ (Language integrated query)
 ```c#
 /*
-	> write (sql) queries inside .Net that can be execetued on:
+	~ write (sql) queries inside .Net that can be execetued on:
 		- xml
 		- RDBMS
 		- collentions
@@ -292,15 +292,19 @@ int i = Conver.ToInt32(str);
 
 ## Strings
 ```c#
+string str = "";// this is a alias of String class
+String str2 = ""; 
+
 /*
-	> Strings are immutable(CAN NOT BE CHANGED)
+	~ Strings are immutable(CAN NOT BE CHANGED)
 		- It creates a new copy each time assigned
-		- a = "bird"//new copy is created and old copy is GC'd
 */
+string a = "cat";
+a = "bird"//new copy is created and old copy is GC'd
 ```
 ### Interning
 ```c#
 /*
-	> If the string value is the same no copy is created
+	- If the string value is the same no copy is created
 *
 ``` 

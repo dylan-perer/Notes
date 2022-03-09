@@ -65,8 +65,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 267,
-    "collapsed": true
+    "width": 267
   },
   "right": {
     "id": "6668deab14583078",
@@ -113,6 +112,7 @@
   "active": "be43cfaa41c91007",
   "lastOpenFiles": [
     "dotNet/C-sharp Theory.md",
+    "dotNet/Test.md",
     "dotNet/C-sharp Notes.md",
     "JavaScript/JavaScipt Notes.md",
     "dotNet/ASP.NET Notes.md",
@@ -120,7 +120,6 @@
     "Spring/CRM Project.md",
     "Spring/Codex Project (REST API).md",
     "SQL/SQL(MySQL) Notes.md",
-    "SQL/SQL Server.md",
-    "Java/Java Notes.md"
+    "SQL/SQL Server.md"
   ]
 }

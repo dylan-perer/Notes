@@ -3,12 +3,12 @@
 ```c#
 Console.WriteLine("Hello world");
 ```
-### Read input #Card
+### Read input 
 ``` c#
 Console.Read();
 ```
 
-## Data Types #Card 
+## Data Types
 ```c#
 string stringVar = "Hello World";
 int intVar = 150;

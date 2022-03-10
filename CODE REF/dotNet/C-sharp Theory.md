@@ -1,323 +1,280 @@
-## .NET Core vs .NET Framework
+## Explain the difference between .NET & Csharp
 ```c#
 /*
-	> dotNET core is cross-platform where .NET Framework is windows only
-	> Now they are both packaged together
+	> dotNET is a framework.
+		- Collection of libaries & it has a runtime.
+	> C# is a programming language.
 *
 ```
 
-## Language Vs Framework
+## Differentiate between .NET Framework Vs .NET Core Vs .NET 5.0
 ```c#
 /*
-	> C# is a language
-	> dotNET is a framework, you can think a framework as a big bag of libraries
+	> .NET Framework is the oldest and only runs on windows.
+	> .NET Core is cross platform.
+		- Big gains in performance
+		- Modular packaging
+		- Full CLI support
+	> .NET 5 and onwards is the unification of .NET Framework & .NET Core.
 *
 ```
 
-## How .NET is Compiled
+## What is IL(Intermediate Language) Code?
 ```c#
 /*
-	> our C# code gets converted to an INTERMEDIATE LANGUAGE(IL code) --- BUILD PROCESS
-	> Then when the application actually runs JIT will come and compile IL code to machine code --- RUN PROGRAM
-
-	> C# => NTERMEDIATE LANGUAGE(IL code) => JIT => (01100) Machine code
+	> When a .NET project is built it gets compiled into IL code.
+	> IL Code is partially compiled code.
 *
 ```
 
-## .DLL
+## What is the use of JIT(Just in Time compiler)?
 ```c#
 /*
-	> DLL can be added as a dependency to other projects
-	> Pure functionality code
-	> No UI attached to it
+	> When a .NET program is run JIT compiles IL code into Machine code.
 *
 ```
 
-## CTS (Common type system)
-![[Screenshot 2022-03-06 190655.png]]
-
+## What is the benefit of compiling into IL code?
 ```c#
 /*
-	> it brings the data types to a common ground of different.NET languages
-	> A integer defined in C#, F# or VB, when it compiled to the INTERMEDIATE LANGUAGE(IL) it is the same (i.e. int32)
+	> IL enables the platform and CPU independence.
 *
 ```
 
-## CLS (Common language specification)
+## Does .NET support more languages?
 ```c#
 /*
-	> If we want to write a program that uses multiple.NET languages we have to follow a CLS
-	> It GOVERNS WHAT TO DO and WHAT TO AVOID if we want to use MULTIPLE LANGUAGES in ONE program
-*/
-[assembly: CLSCompliant(true)]//we can add this decorator to get editor warnings to make out code CLS compliant
-```
-
-## Casting
-```c#
-/*
-	> There are two types of casting
-		- Implicit, no data loss
-		- Explicit, some data loss
-*/
-
-double x = 1123.33;
-int a = (int)x;
-
-Console.WriteLine(a);
-```
-### Conversion
-```c#
-/*
-	- String str = "911";
-	- int i = Conver.ToInt32(str);
-*/
-```
-### Singed vs Unsigned
-```c#
-/*
-	> Unsigned means not negative values, it can hold a larger positive value
-	> Signed can hold both positive and negative
+	> Yes, i.e. f#, visual basic. And they all get compiled into the same IL code.
 *
 ```
 
-## Class & Objects
+## What is CLR (Common Language Runtime)?
 ```c#
 /*
-	> Class
-		- A class is a blueprint, a tempplate
-		- It has attributes & methods defined
-	> Object
-		- Object is a instance of a class
-		- If we want to use a class we must create a instance of it
+	> CLR invokes JIT to compile IL Code.
+	> Calls Garbage collector to clean unused allocations in memory.
+*
+```
+## What is managed and unmanaged code?
+```c#
+/*
+	> Code that runs under CRL execution environment is called managed code, i.e. c#
+	> Unmanaged code executes outside of CLR control, i.e. c++
 *
 ```
 
-## Namespace
+## What is the use of a Garbage Collector?
 ```c#
 /*
-	> Namespaces are used to group relative classes together
+	> Garbage collector is a background process that handles removing any unused memory allocations.
 *
 ```
 
-## Value & Reference types
+## Can Garbage Collector claim unmanaged objects?
 ```c#
 /*
-	> Value types:
-		- Are copied and are stored in the stack
-		- points to different address
-		- example would be a int
-		- static size
-
-	> Reference types:
-		- Are not copied and are stored in the heap
-		- points to the same address
-		- example would be a object
-		- dynamic size
-*/
-```
-
-## Garbage collection
-```c#
-/*
-	> Handles the process of memory management
-		- Clears out memory allocations that doesn't have reference
-*/
-```
-
-## Stack Vs Heap
-```c#
-/*
-	> Heap stores reference types
-	> Stack stores value types & pointers of reference types
-```
-
-## Struct
-[[C-sharp Notes#Struct]]
-```c#
-/*
-	> Is a composite VALUE TYPE
-		- Can have methods and variables
-*/
-
-```
-
-## Boxing & Unboxing
-```c#
-/*
-	> Boxing
-		- converting a VALUE TYPE a REFERNECE TYPE
-	> Unboxing
-		- converting a REFERNCE TYPE to a VALUE TYPE
+	> No!, it can only claim allocations that are made through CLR.
 *
 ```
 
-## Collections
-[[C-sharp Notes#Collections]]
+## What is the importance of CTS(Common types system)?
 ```c#
 /*
-	> ArrayList
-		- Boxing occurs
-	> List 
-		- Is better no boxing happens but we must pass the data type
+	> CTS ensures data types defined in two different languages get compiled to a common data type.
 *
 ```
 
-## Threading 
-[[C-sharp Notes#Threading]]
+## What is the importance of CLS?
 ```c#
 /*
-	> Threading is used when we want to run code parallelly
-	> Runs on the same core (time slicing)
-
-```
-
-### Foreground Vs Background thread
-```c#
-/*      
-	> Foreground Thread
-		- A thread that is fully executed
-	> Background Thread
-		- A low priority thread that will get killed when all the foreground threads are fully executed.
-*/
-```
-
-### Thread-safe
-```c#
-/*
-	- Eliminates race conditions where two or more threads can access shared data
+	> Set of guidelines to ensure cross-language integration.
 *
 ```
 
-### Auto & Manual reset event
+## Explain the difference between Stack & Heap?
 ```c#
 /*
-	> Allows achieving sychnozation using signaling
-	> Auto-reset
-		 Turn style gate, one person can enter at a time
-	> Manual-reset
-		- Ordanary gate, everyone rush in
-*/
-```
-
-### Thread pooling
-```c#
-/*
-	> Reuses threads, rather than creating and destroying them each time
-	> Performance gains
-	> Can set a limit
+	> They are both locations in memory.
+	> Value types and pointers to reference types are stored in the stack.
+	> Reference types are stored in the heap.
 *
 ```
 
-## Task (TPL)
+## What are Value types & Reference types?
 ```c#
 /*
-	> Doesn't have thread affinity, where it tries to run in the same core
-*/
-```
-
-## Async Await
-[[C-sharp Notes#Async Await]]
-```c#
-/*
-	> Eliminate default synchronous code where everything has to be done sequentially
-		- calls back when await is done
-		- Runs on the same thread
-		- acts as a background thread but does not create a thread
+	> Value types are stored in the stack.
+	> Reference types are stored in the heap.
 *
 ```
 
-## Delegate
-[[C-sharp Notes#Delegate]]
+## What is Boxing & Unboxing?
 ```c#
 /*
-	> A pointer to a function
-		- similar to a callback funtion
-*
-```
-#### Multicast delegate
-```c#
-/*
-	> Sends callbacks to multiple callers 
-		- BI-DIRECTIONAL communication
-*
-```
-### Event
-```c#
-/*
-	> Sends callbacks to multiple callers 
-		- UNI-DIRECTIONAL communication
+	> Boxing is when a value type is converted to a reference type.
+	> Unboxing is when a reference type is converted to a value type
 *
 ```
 
-## Anonymous function
+## What is the consequence of boxing and unboxing?
 ```c#
 /*
-	> Function without a name
-		- Usecase, only needs to be called once
-*
-```
-### Lambda expression
-```c#
-/*
-	> Is an inline function
-*
-```
-### Func
-```c#
-/*
-	> A type of delegate can declare inputs and outputs
+	> Impacts performance
+		- Jumping from stack to heap & vice versa
 *
 ```
 
-### Action
+## Explain Casting, Implicit & Explicit casting
 ```c#
 /*
-	> Same as a func but the return type is always void
-*
-```
-### Predicate
-```c#
-/*
-	> A type of delegate that can only return a boolean
+	> Casting is the process of converting a data type into an another
+	> Implicit casting is when no data loss occurs, i.e. int to double
+	> Explicit casting is when data loss can occur, i.e. double to int where you lose the decimals
 *
 ```
 
-## LINQ (Language integrated query)
+## Explain the difference between Array and ArrayList?
 ```c#
 /*
-	> write (sql) queries inside .Net that can be execetued on:
-		- xml
-		- RDBMS
-		- collentions
+	> Array is a fixed size and strongly typed.
+		- Better performance
+	> ArrayList has a dynamic length and is not strongly typed.
+		- It is slower than an array because boxing & unboxing
 *
 ```
 
-## Strings
+## What are generic collections?
 ```c#
 /*
-	> Strings are immutable(CAN NOT BE CHANGED)
-		- It creates a new copy each time assigned
-		- a = "bird"//new copy is created and old copy is GC'd
-*/
-```
-### Interning
-```c#
-/*
-	> If the string value is the same no copy is created
+	> Are strongly typed and have a flexible length.
 *
-``` 
-
-## Constants
-```c#
-/*
-	> Constant variables can be only assigned once
-		- Cannot be changed later
-*/
 ```
 
-### Enum
+## What are Threads (Multithreading)?
 ```c#
 /*
-	> A Enum is a group of related constants
-*/
+	> Allows code to execute parallelly.
+*
+```
+
+## Difference between Thread & Task?
+```c#
+/*
+	> Task is an abstraction of threading.
+	> Tasks can return something, can be canceled, can be used with async-await.
+	> Tasks utilize CPU better because it does not have thread affinity where it tries to run on the same core
+	> Unless you are working with legacy code tasks are always better than threads
+*
+```
+
+## How do we handle exceptions in C-sharp?
+```c#
+/*
+	> Using try-catch blocks
+*
+```
+
+## What is the need for finally?
+```c#
+/*
+	> It is a block of code that is always executed whether there is an exception or not.
+*
+```
+
+## What is the use of 'ref' Keyword?
+```c#
+/*
+	 > with ref keyword you can pass values to a function or method as a reference
+*
+```
+
+## What is the use of 'out' Keyword?
+```c#
+/*
+	 > out keyword can be used to return multiple values from a function.
+*
+```
+
+## What is the use of 'in' Keyword?
+```c#
+/*
+	 > Using 'in' will make the argument passed into a function read-only.
+*
+```
+
+## What is the need for Delegates?
+```c#
+/*
+	> Delegate is a pointer to a function, a callback.
+*
+```
+
+## Example of where you would have used a delegate?
+```c#
+/*
+	> Streaming file data from a thread to the main thread.
+*
+```
+
+## What is a multicast Delegate?
+```c#
+/*
+	
+*
+```
+
+## Titile?
+```c#
+/*
+	
+*
+```
+
+## Titile?
+```c#
+/*
+	
+*
+```
+
+## Titile?
+```c#
+/*
+	
+*
+```
+
+## Titile?
+```c#
+/*
+	
+*
+```
+
+## Titile?
+```c#
+/*
+	
+*
+```
+
+## Titile?
+```c#
+/*
+	
+*
+```
+
+## Titile?
+```c#
+/*
+	
+*
+```
+
+## Titile?
+```c#
+/*
+	
+*
 ```

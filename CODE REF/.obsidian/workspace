@@ -10,7 +10,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "dotNet/z.md"
+            "file": "dotNet/C-sharp Theory.md"
           }
         }
       },
@@ -21,7 +21,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "dotNet/z.md",
+            "file": "dotNet/C-sharp Theory.md",
             "mode": "source",
             "source": false
           }
@@ -65,8 +65,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 267,
-    "collapsed": true
+    "width": 267
   },
   "right": {
     "id": "6668deab14583078",
@@ -82,7 +81,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "dotNet/z.md",
+                "file": "dotNet/C-sharp Theory.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +98,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "dotNet/z.md"
+                "file": "dotNet/C-sharp Theory.md"
               }
             }
           }
@@ -112,12 +111,12 @@
   },
   "active": "be43cfaa41c91007",
   "lastOpenFiles": [
-    "dotNet/z.md",
-    "dotNet/C-sharp Notes.md",
     "dotNet/C-sharp Theory.md",
+    "dotNet/ASP.NET Notes.md",
+    "dotNet/C-sharp Code.md",
+    "dotNet/___C-sharp Theory.md",
     "dotNet/Untitled.md",
     "JavaScript/JavaScipt Notes.md",
-    "dotNet/ASP.NET Notes.md",
     "Interview Questions/TODOS.md",
     "Spring/CRM Project.md",
     "Spring/Codex Project (REST API).md",

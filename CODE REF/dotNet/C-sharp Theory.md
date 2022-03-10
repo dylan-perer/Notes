@@ -133,6 +133,14 @@
 *
 ```
 
+## What is Singed vs Unsigned
+```c#
+/*
+	> Unsigned means not negative values, it can hold a larger positive value
+	> Signed can hold both positive and negative
+*
+```
+
 ## Explain the difference between Array and ArrayList?
 ```c#
 /*
@@ -195,7 +203,7 @@
 */
 ```
 
-## What is Thread pooling
+## What is Thread pooling?
 ```c#
 /*
 	> Reuses threads, rather than creating and destroying them each time
@@ -214,10 +222,13 @@
 *
 ```
 
-## How do we handle exceptions in C-sharp?
+## What is Async Await
 ```c#
 /*
-	> Using try-catch blocks
+	> Eliminate default synchronous code where everything has to be done sequentially
+		- calls back when await is done
+		- Runs on the same thread
+		- acts as a background thread but does not create a thread
 *
 ```
 
@@ -256,6 +267,21 @@
 		- Can have methods and variables
 */
 
+```
+
+## What is an Enum
+```c#
+/*
+	> A Enum is a group of related constants
+*/
+```
+
+## Explain const vs ready-only
+```c#
+/*
+	> Const can be only assigned once.
+	> Same as a const but can be assigned inside the constructor.
+*/
 ```
 
 ## What is the need for Delegates?
@@ -309,22 +335,52 @@
 	> Lambda expression is an anonymous method that you can use to create delegates
 *
 ```
-## Func
+## Explain Func
 ```c#
 /*
 	> A type of delegate can take multiple inputs and return a value.
 *
 ```
 
-## Action
+## Explain Action
 ```c#
 /*
 	> A type of delegate same as Func but without a return.
 *
 ```
-## Predicate
+## Explain Predicate
 ```c#
 /*
 	> A type of delegate same as Func but always returns a boolean.
+*
+```
+
+## Explain Strings in C-sharp
+```c#
+/*
+	> Strings are immutable and is a reference type.
+	> When a string is changed a new copy is made in the heap.
+*
+```
+
+## Explain Strings builder
+```c#
+/*
+	> It avoids making copies and uses the same address in the heap.
+	> It has better performance when modifying a string.
+*
+```
+
+## Explain Interning
+```c#
+/*
+	> If the string value is the same no copy is created
+*
+``` 
+
+## Explain Namespace
+```c#
+/*
+	> Namespaces are used to group relative classes together
 *
 ```

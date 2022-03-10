@@ -198,11 +198,6 @@ enum WeekDays
 }
 ```
 
-## Delegate Function
-```c#
-/*   - it is a pointer to a function
-```
-
 ## Pass function as a parameter
 ```c#
 public class AccessDemo

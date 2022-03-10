@@ -150,10 +150,57 @@
 *
 ```
 
+## What is LINQ (Language integrated query)
+```c#
+/*
+	> write (sql) queries inside .Net that can be execetued on:
+		- xml
+		- RDBMS
+		- collentions
+*
+```
+
 ## What are Threads (Multithreading)?
 ```c#
 /*
 	> Allows code to execute parallelly.
+*
+```
+
+## Explain Foreground Vs Background thread
+```c#
+/*      
+	> Foreground Thread
+		- A thread that is fully executed
+	> Background Thread
+		- A low priority thread that will get killed when all the foreground threads are fully executed.
+*/
+```
+
+## Explain Thread-safe
+```c#
+/*
+	- Eliminates race conditions where two or more threads can access shared data
+*
+```
+
+## Explain Auto & Manual reset event
+```c#
+/*
+	> Allows achieving sychnozation using signaling
+	> Auto-reset
+		 Turn style gate, one person can enter at a time
+	> Manual-reset
+		- Ordanary gate, everyone rush in
+*/
+```
+
+## What is Thread pooling
+```c#
+/*
+	> Reuses threads, rather than creating and destroying them each time
+	> Performance gains
+	> Can set a limit
 *
 ```
 
@@ -202,6 +249,15 @@
 *
 ```
 
+## What is a Struct
+```c#
+/*
+	> Is a composite VALUE TYPE
+		- Can have methods and variables
+*/
+
+```
+
 ## What is the need for Delegates?
 ```c#
 /*
@@ -219,62 +275,56 @@
 ## What is a multicast Delegate?
 ```c#
 /*
-	
+	> Similar to a normal delegate but can have more than one callback
 *
 ```
 
-## Titile?
+## What is an Event?
 ```c#
 /*
-	
+	> It implements the publisher and subscriber model.
+	> It uses delegates internally.
+	> It is a protective layer over a delegate where it prevents client-side tampering.
+*/
+```
+
+## Event Vs Delegate?
+```c#
+/*
+	> Delegates are for callbacks, and they are not encapsulated.
+	> Events are for publisher and subscriber models, and they are encapsulated, eliminating client-side tampering.
 *
 ```
 
-## Titile?
+## Anonymous function
 ```c#
 /*
-	
+	> Function without a name
+		- Usecase, only needs to be called once
+*
+```
+## Lambda expression
+```c#
+/*
+	> Lambda expression is an anonymous method that you can use to create delegates
+*
+```
+## Func
+```c#
+/*
+	> A type of delegate can take multiple inputs and return a value.
 *
 ```
 
-## Titile?
+## Action
 ```c#
 /*
-	
+	> A type of delegate same as Func but without a return.
 *
 ```
-
-## Titile?
+## Predicate
 ```c#
 /*
-	
-*
-```
-
-## Titile?
-```c#
-/*
-	
-*
-```
-
-## Titile?
-```c#
-/*
-	
-*
-```
-
-## Titile?
-```c#
-/*
-	
-*
-```
-
-## Titile?
-```c#
-/*
-	
+	> A type of delegate same as Func but always returns a boolean.
 *
 ```

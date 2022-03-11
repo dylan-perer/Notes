@@ -313,3 +313,5 @@ class Stream
 }
 //for multicast delegate call streamDelegateObject(i); where u want it again and use += when assigning it
 ```
+
+## TODO: in out ref

@@ -284,7 +284,7 @@
 */
 ```
 
-## What is the need for Delegates?
+## What is a Delegate?
 ```c#
 /*
 	> Delegate is a pointer to a function, a callback.

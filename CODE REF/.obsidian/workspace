@@ -10,7 +10,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "dotNet/OOP Theory.md"
+            "file": "dotNet/C-sharp Theory.md"
           }
         }
       },
@@ -21,7 +21,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "dotNet/OOP Theory.md",
+            "file": "dotNet/C-sharp Theory.md",
             "mode": "source",
             "source": false
           }
@@ -65,7 +65,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 267
+    "width": 188
   },
   "right": {
     "id": "6668deab14583078",
@@ -81,7 +81,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "dotNet/OOP Theory.md",
+                "file": "dotNet/C-sharp Theory.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -98,7 +98,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "dotNet/OOP Theory.md"
+                "file": "dotNet/C-sharp Theory.md"
               }
             }
           }
@@ -111,8 +111,8 @@
   },
   "active": "be43cfaa41c91007",
   "lastOpenFiles": [
-    "dotNet/OOP Theory.md",
     "dotNet/C-sharp Theory.md",
+    "dotNet/OOP Theory.md",
     "dotNet/___C-sharp Theory.md",
     "dotNet/ASP.NET Notes.md",
     "dotNet/C-sharp Code.md",

@@ -111,48 +111,137 @@
 ## Are abstract methods virtual?
 ```c#
 /*
-	> Yes
+	> Yes.
 *
 ```
 
-## title
+## Can we create an instance of an Abstract class?
+```c#
+/*
+	> No.
+*
+```
+
+## Is it compulsory to implement all Abstract methods?
+```c#
+/*
+	> Yes.
+*
+```
+
+## Why can't base classes replaces Abstract classes?
+```c#
+/*
+	> Because we cant partially define a base class.
+*
+```
+
+## Why use interface?
+```c#
+/*
+	> To create a contract so that the user must adhere the rules of the interface.
+	> Multi inheritance
+*
+```
+
+## What is an interface?
+```c#
+/*
+	> Interface is a contract, by having a contract we have better control on impact analysis, change management, and breaking changes.
+*
+```
+
+## Can we write logic inside of interface?
+```c#
+/*
+	> No.
+*
+```
+
+## Can we define interface methods as private?
+```c#
+/*
+	> No, it is set to public by default
+*
+```
+
+## When changing an existing interface what's the best practice?
+```c#
+/*
+	> Create a new interface with inheriting the exiting interface
+*
+```
+
+## Why use multi-interface inheritance?
+```c#
+/*
+	> To add new methods to an existing interface without breaking.
+*
+```
+
+## Explain interface segregation?
+```c#
+/*
+	> Classes are not forced to use unnecessary logic that they don't need.
+*
+```
+
+## Can we create an instance of an interface?
+```c#
+/*
+	> No
+*
+```
+
+## Can we do multiple inheritances with Abstract classes?
+```c#
+/*
+	> No
+*
+```
+
+## Difference between Abstract class vs Interface?
+```c#
+/*
+
+*
+```
+## Title?
+```c#
+/*
+
+*
+```
+## Title?
+```c#
+/*
+
+*
+```
+## Title?
+```c#
+/*
+
+*
+```
+## Title?
+```c#
+/*
+
+*
+```
+## Title?
+```c#
+/*
+
+*
+```
+## Title?
 ```c#
 /*
 
 *
 ```
 
-## title
-```c#
-/*
 
-*
-```
-
-## title
-```c#
-/*
-
-*
-```
-
-## title
-```c#
-/*
-
-*
-```
-
-## title
-```c#
-/*
-
-*
-```
-
-## title
-```c#
-/*
-
-*
-```
+## TODO: SOLID

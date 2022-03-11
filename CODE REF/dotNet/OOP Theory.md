@@ -97,7 +97,7 @@
 ## What is an Abstract class?
 ```c#
 /*
-	> Abstract class is a partially defined class
+	> Abstract class is a partially defined base class
 *
 ```
 
@@ -203,45 +203,95 @@
 ## Difference between Abstract class vs Interface?
 ```c#
 /*
-
+	> Interface has no logic while abstract class can have some logic
+	> Interfaces are implemented while abstract classes are inherited
 *
 ```
-## Title?
+## Why do we need constructors?
+```c#
+/*
+	> Constructor is a special method that is invoked when an object of a class is created.
+*
+```
+## In parent-child which constructor fires first?
+```c#
+/*
+	> Parent constructor is executed first.
+*
+```
+## In parent-child which initializers(fields) fires first??
+```c#
+/*
+	> Child's first then parents.
+*
+```
+## How are static constructors executed in parent-child classes?
 ```c#
 /*
 
 *
 ```
-## Title?
+## What is a static class?
 ```c#
 /*
-
-*
-```
-## Title?
-```c#
-/*
-
-*
-```
-## Title?
-```c#
-/*
-
-*
-```
-## Title?
-```c#
-/*
-
-*
-```
-## Title?
-```c#
-/*
-
+	> Static classes are sealed and therefore cannot be inherited
 *
 ```
 
+## What is a static field?
+```c#
+/*
+	> only one instance of the field is created and it is shared by all its objects
+*
+```
 
-## TODO: SOLID
+## What is shadowing/method hiding?
+```c#
+/*
+	> Child methods are hidden from parents during polymorphism.
+*
+```
+
+## Explain overriding vs shadowing?
+```c#
+/*
+	> Overriding is when you override some existing logic inherited by a parent class
+	> Shadowing is hiding methods from superclass during polymorphism
+*
+```
+
+## What is the Single responsibility principle (SOLID)
+```c#
+/*
+	> A class should only solve one problem
+	> Small is good, keep it simple
+*
+```
+
+## What is the Open-closed principle (SOLID)
+```c#
+/*
+	> A class should be open to extension, however, closed to modification
+*
+```
+
+## What is the Liskov substitution principle (SOLID)
+```c#
+/*
+	> If we substitute a type with one of its subtypes, the behavior should not change
+*
+```
+
+## What is the Segregation principle (SOLID)
+```c#
+/*
+	> Avoid making general interfaces, an interface should be specific.
+*
+```
+
+## What is the Dependency Inversion principle (SOLID)
+```c#
+/*
+	> Higher level classes should not know the implementation of low-level classes.
+*
+```

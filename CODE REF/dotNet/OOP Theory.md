@@ -225,12 +225,6 @@
 	> Child's first then parents.
 *
 ```
-## How are static constructors executed in parent-child classes?
-```c#
-/*
-
-*
-```
 ## What is a static class?
 ```c#
 /*

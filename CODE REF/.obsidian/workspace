@@ -10,7 +10,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "dotNet/C-sharp Code.md"
+            "file": "dotNet/OOP Theory.md"
           }
         }
       },
@@ -21,7 +21,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "dotNet/C-sharp Code.md",
+            "file": "dotNet/OOP Theory.md",
             "mode": "source",
             "source": false
           }
@@ -65,7 +65,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 188
+    "width": 352
   },
   "right": {
     "id": "6668deab14583078",
@@ -81,7 +81,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "dotNet/C-sharp Code.md",
+                "file": "dotNet/OOP Theory.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -98,7 +98,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "dotNet/C-sharp Code.md"
+                "file": "dotNet/OOP Theory.md"
               }
             }
           }
@@ -109,17 +109,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "4d60c44be761129e",
+  "active": "be43cfaa41c91007",
   "lastOpenFiles": [
-    "dotNet/C-sharp Code.md",
+    "dotNet/OOP Theory.md",
     "dotNet/ASP .NET Theory.md",
+    "dotNet/C-sharp Theory.md",
+    "dotNet/Code/ASP.NET.md",
+    "dotNet/Code/C-sharp.md",
     "dotNet/Untitled.md",
     "Git/Basics.md",
     "Git/Git Theory & Code.md",
     "dotNet/___C-sharp Theory.md",
-    "dotNet/C-sharp Theory.md",
-    "dotNet/OOP Theory.md",
-    "dotNet/ASP.NET Notes.md",
     "JavaScript/JavaScipt Notes.md"
   ]
 }

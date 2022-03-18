@@ -1,0 +1,125 @@
+{
+  "main": {
+    "id": "c91c3171135bd1c7",
+    "type": "split",
+    "children": [
+      {
+        "id": "1be69911bfb7c02a",
+        "type": "split",
+        "children": [
+          {
+            "id": "1dadc85aafc06504",
+            "type": "leaf",
+            "dimension": 23.33333333333333,
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "CODE REF/dotNet/Code/C-sharp.md"
+              }
+            }
+          },
+          {
+            "id": "46d50a9d427bf2c6",
+            "type": "leaf",
+            "dimension": 76.66666666666667,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CODE REF/dotNet/Code/MVC.md",
+                "mode": "preview"
+              }
+            }
+          }
+        ],
+        "direction": "vertical"
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "8e6bea784c6e1852",
+    "type": "split",
+    "children": [
+      {
+        "id": "6214917983b98e17",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3916bb94d4836587",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "3ba7d5717d36f451",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 224
+  },
+  "right": {
+    "id": "97d4c5e6d3485cd6",
+    "type": "split",
+    "children": [
+      {
+        "id": "25f5203e945bb2b1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "774087c758b5a32c",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "CODE REF/dotNet/Code/C-sharp.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "4bb4abd137665520",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "CODE REF/dotNet/Code/C-sharp.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "1dadc85aafc06504",
+  "lastOpenFiles": [
+    "CODE REF/dotNet/Code/C-sharp.md",
+    "CODE REF/dotNet/Code/MVC.md",
+    "CODE REF/dotNet/Code/ASP.NET.md",
+    "CODE REF/dotNet/ASP .NET Theory.md"
+  ]
+}

@@ -161,7 +161,7 @@ namespace aspnet_ecommerce_mvc.Controllers
 }
 ```
 
-#### Async method
+#### Async controller method
 ```c#
 public async Task<IActionResult> Index()//async
 {
@@ -169,3 +169,5 @@ public async Task<IActionResult> Index()//async
 	return View();
 }
 ```
+
+

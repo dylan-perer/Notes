@@ -228,7 +228,17 @@
 ## What is a static class?
 ```c#
 /*
-	> Static classes are sealed and therefore cannot be inherited
+	> Cannot be intialized
+	> Only one isnstace exists on the whole program
+	> Cannot be inherit or implenet interafces
+*
+```
+## What is a singleton class?
+```c#
+/*
+	> Cannot be only intialized ONCE
+	> Only one isnstace exists on the whole program
+	> Cannot still inherit and implenet interafces
 *
 ```
 

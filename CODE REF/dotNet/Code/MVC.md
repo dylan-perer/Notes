@@ -365,12 +365,14 @@ add-migration Add{ModelClassName}ToDatabse
 Scaffold-DbContext "Data Source=.;Initial Catalog=BikeStores;Integrated Security=True" Microsoft.EntityFrameWorkCore.SqlServer -outputdir Models -context BikeStoreDbContext -contextdir Data -DataAnnotations -Force
 
 #using SQL server authentication
-Scaffold-DbContext "Data Source=faisal;User ID=dylan;Password=sa;Initial Catalog=test" Microsoft.EntityFrameWorkCore.SqlServer -outputdir Models -context testDbContext -contextdir Data -DataAnnotations -Force
-
+Scaffold-DbContext "Data Source=faisal;User ID=dylan;Password=sa;Initial Catalog=CommunityDrivenSocialPlatform" Microsoft.EntityFrameWorkCore.SqlServer -outputdir Models -context testDbContext -contextdir Data -DataAnnotations -Force
 
 # mysql
 Scaffold-DbContext "server=localhost;user=root;database=mydb;password=root;port=3306" Pomelo.EntityFrameworkCore.MySql -outputdir Models -context CmsDbContext -contextdir Data -DataAnnotations -Force
 
+
+# Web api
+Scaffold-DbContext "Data Source=.;Initial Catalog=CommunityDrivenSocialPlatform;User ID=dylan;Password=sa" Microsoft.EntityFrameWorkCore.SqlServer -outputdir Models -context CDSPdB -contextdir Data -DataAnnotations -Force
 
 ```
 
@@ -406,6 +408,7 @@ namespace ContosoUniversity.Data
 }
 ```
 
+### Service Config
 ```c#
 //adding the database context
 public void ConfigureServices(IServiceCollection services)
@@ -452,7 +455,32 @@ public async Task<IActionResult> Index()//async
 }
 ```
 
-## TODO: crud async with db context--
+## Enity Framework CRUD
+### Create
+```c#
+await dbContext.User.AddAsync(userSignup); 
+dbContext.SaveChanges();
+```
+### Read
+```c#
+//read all
+List<User> users = await dbContext.User.ToListAsync();
+
+//find
+User  user = await dbContext.User.FirstOrDefaultAsync(user => user.Username == userLogin.Username && user.Password == userLogin.Password);
+
+//select all with condition
+List<SubThreadUser> subThreadUsers = await dbContext.SubThreadUser.Where(r => r.SubThreadId == subThread.Id).ToListAsync();
+```
+#### Inner join
+```c#
+var innerJoin = dbContext.User.Join(dbContext.SubThreadUser, tbl_user => tbl_user.Id, tbl_sub_thread_user => tbl_sub_thread_user.UserId,
+			(tbl_user, tbl_sub_thread_user) => new { tbl_user, tbl_sub_thread_user })
+			.Select(c => new { c.tbl_user.Username, c.tbl_sub_thread_user.SubThreadRoleId, c.tbl_sub_thread_user.SubThreadId })
+			.Where(r => r.SubThreadId == subThread.Id);
+```
+
+
 ## MVC Authentication & Authorize
 ```c#
 //Add auth service

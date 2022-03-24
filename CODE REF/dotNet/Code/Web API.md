@@ -132,6 +132,8 @@ public class Ticket {
 ```
 
 ### Custom Validation
+#### Strongly typed class
+
 ```c#
 //custom validation where checks against db for unique email
 using CommunityDrivenSocialPlatform_APi.Data;
@@ -155,6 +157,22 @@ namespace CommunityDrivenSocialPlatform_APi.Validaton
             return new ValidationResult("Sorry, Email address is already in use. Please login or try again.");
         }
     }
+}
+```
+#### Using value
+```c#
+public class EnsureUqniqueUsername : ValidationAttribute
+{
+	protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+	{
+		DataContext dbContext = (DataContext)validationContext.GetService(typeof(DataContext));
+
+		if (dbContext.User.FirstOrDefault(r => r.Username == value.ToString()) == null)
+		{
+			return ValidationResult.Success;
+		}
+		return new ValidationResult("Sorry, Email address is already in use. Please login or try again.");
+	}
 }
 ```
 

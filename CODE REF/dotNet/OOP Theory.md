@@ -14,7 +14,7 @@
 *
 ```
 
-## Pros OOP?
+## Pros of OOP?
 ```c#
 /*
 	> Abstraction, show only what is necessary.
@@ -24,6 +24,13 @@
 *
 ```
 
+## Cons of OOP?
+```c#
+/*
+	> Larger program size.
+	> And is typically slower compared to something like functional programming.
+*
+```
 ## What are classes & objects?
 ```c#
 /*

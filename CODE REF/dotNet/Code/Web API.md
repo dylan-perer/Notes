@@ -1,23 +1,3 @@
-## What is Web APi
-```c#
-/*
-	> API, application programming interface is a bunch of exposed functions that we can use to interact with data
-	> WEB APi, is when those function are accesseable remotely through HTTP Portocol
-	> REMOTLY HOSTED FUNCTIONS OVER HTTP PROTOCOL
-*
-```
-![[Screenshot 2022-03-19 130514.png]]
-
-## What makes a RESTful Api
-```c#
-/*
-	> Uniform Interface
-	> Client-server
-	> Stateless
-	> Layered system
-*
-```
-
 ## Swagger UI
 https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-3.1&tabs=visual-studio
 ### Packages

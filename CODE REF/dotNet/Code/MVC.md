@@ -367,15 +367,27 @@ Scaffold-DbContext "Data Source=.;Initial Catalog=BikeStores;Integrated Security
 #using SQL server authentication
 Scaffold-DbContext "Data Source=faisal;User ID=dylan;Password=sa;Initial Catalog=CommunityDrivenSocialPlatform" Microsoft.EntityFrameWorkCore.SqlServer -outputdir Models -context testDbContext -contextdir Data -DataAnnotations -Force
 
-# mysql
-Scaffold-DbContext "server=localhost;user=root;database=mydb;password=root;port=3306" Pomelo.EntityFrameworkCore.MySql -outputdir Models -context CmsDbContext -contextdir Data -DataAnnotations -Force
-
-
 # Web api
 Scaffold-DbContext "Data Source=.;Initial Catalog=CommunityDrivenSocialPlatform;User ID=dylan;Password=sa" Microsoft.EntityFrameWorkCore.SqlServer -outputdir Models -context CDSPdB -contextdir Data -DataAnnotations -Force
 
 ```
 
+### Mysql
+#### Packages
+```xml
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.23" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.23" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.23">
+    </PackageReference>
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="3.1.19" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.7" />
+  </ItemGroup>
+```
+#### Scalfold
+```bash
+Scaffold-DbContext "server=localhost;user=root;database=Anthera;password=root;port=3306" Pomelo.EntityFrameworkCore.MySql -outputdir Models -context dataContext -contextdir Data -DataAnnotations -Force
+```
 ### Adiing Db Context
 ```c#
 /*

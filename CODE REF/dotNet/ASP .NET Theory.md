@@ -1,23 +1,3 @@
-## What is Web APi
-```c#
-/*
-	> API, application programming interface is a bunch of exposed functions that we can use to interact with data
-	> WEB APi, is when those function are accesseable remotely through HTTP Portocol
-	> REMOTLY HOSTED FUNCTIONS OVER HTTP PROTOCOL
-*
-```
-![[Screenshot 2022-03-19 130514.png]]
-
-## What makes a RESTful Api
-```c#
-/*
-	> Uniform Interface
-	> Client-server
-	> Stateless
-	> Layered system
-*
-```
-
 ## What is MVC core?
 ```c#
 /*
@@ -215,68 +195,46 @@
 *
 ```
 
-## Can tempdata persist from action to action?
+## Can tempdata persist from action to action and what is peek?
 ```c#
 /*
 	> It will persist till it is read.
+	> we can use peek rathe than read to persist the value.
 *
 ```
 
-## Heading
+## Explain Session variables Vs ViewData vs TempData
 ```c#
-
+/*
+	> Session scope is from browser open to browser exist.
+	> ViewData scope is form controller to a view.
+	> TempData score is action to action till it is read.
+*
 ```
 
-## Heading
+## What is Web APi
 ```c#
-
+/*
+	> Remotely hosted functions over http protocol.
+*
 ```
 
-## Heading
+## What makes a RESTful Api
 ```c#
-
+/*
+	> REST is a set of guidelines that we can follow to make a web-API a RESTful API, such as 
+		- Client-server
+		- Stateless
+		- Uniform Interface
+		- Layered system
+*
 ```
 
-## Heading
+## Difference between MVC vs Web API controllers
 ```c#
-
-```
-## Heading
-```c#
-
-```
-
-## Heading
-```c#
-
+/*
+	> MVC controller returns a view.
+	> API Controller retunrs a IActionResult, which can a json for example.
+*
 ```
 
-## Heading
-```c#
-
-```
-
-## Heading
-```c#
-
-```
-
-## Heading
-```c#
-
-```
-
-## Heading
-```c#
-
-```
-
-## Heading
-```c#
-
-```
-
-## Heading
-```c#
-
-```

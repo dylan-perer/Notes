@@ -107,84 +107,119 @@
 *
 ```
 
-## Heading
+## Explain 'Scoped' dependency injection
 ```c#
-
+/*
+	> Injects a new instance per request.
+*
 ```
 
-## Heading
+## Explain 'Singleton' dependency injection
 ```c#
-
+/*
+	> Injects the same instace.
+*
 ```
 
-## Heading
+## Explain 'Transient' dependency injection
 ```c#
-
+/*
+	> Injects new instances every time.
+*
 ```
 
-## Heading
+## What is Razor?
 ```c#
-
+/*
+	> it is a View template engine.
+	> Allows us to write server code and html in the same file.
+*
 ```
 
-## Heading
+## How to pass model to a view?
 ```c#
-
+/*
+	> return view with name and model.
+*
 ```
 
-## Heading
+## What are stongly typed views?
 ```c#
-
+/*
+	> A view with a type of the model bind to it.
+*
 ```
 
-## Heading
+## What is a view model?
 ```c#
-
+/*
+	> It is  a wrapper class that wraps around 2 or more models which is passed to the view.
+*
 ```
 
-## Heading
+## What is kestral?
 ```c#
-
+/*
+	> Default web server used by asp core.
+	> When deploying krestal will act as a reverse proxy to another web server like nginx.
+*
 ```
 
-## Heading
+## Why not use IIS web server?
 ```c#
-
+/*
+	> Its windows only. 
+*
 ```
 
-## Heading
+## What are cookies?
 ```c#
-
+/*
+	> It a file with small bits of data stored in the end user's machine.
+*
 ```
 
-## Heading
+## What Session management?
 ```c#
-
+/*
+	> Since HTTP is stateless, we need sessions to keep track of the state. 
+*
 ```
 
-## Heading
+## What is http context
 ```c#
-
+/*
+	> It holds headers, session and request info.
+*
 ```
 
-## Heading
+## What is viewData and how should it be used?
 ```c#
-
+/*
+	> It is used to pass value from controller to view.
+	> It will only persist for a single request.
+*
 ```
 
-## Heading
+## What is viewBag and how should it be used?
 ```c#
-
+/*
+	> It is sintatical sugar for viewData.
+*
 ```
 
-## Heading
+## Explain tempdata?
 ```c#
-
+/*
+	> We can decide when to dispose the data unlike view data
+*
 ```
 
-## Heading
+## Can tempdata persist from action to action?
 ```c#
-
+/*
+	> It will persist till it is read.
+*
 ```
 
 ## Heading

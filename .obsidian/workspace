@@ -6,11 +6,11 @@
       {
         "id": "59782353a8d9ccf2",
         "type": "leaf",
-        "dimension": 84.18430884184309,
+        "dimension": 76.8368617683686,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "CODE REF/dotNet/ASP .NET Theory.md",
+            "file": "CODE REF/SQL/SQL Theory.md",
             "mode": "source"
           }
         }
@@ -18,11 +18,11 @@
       {
         "id": "1dadc85aafc06504",
         "type": "leaf",
-        "dimension": 15.81569115815691,
+        "dimension": 23.163138231631383,
         "state": {
           "type": "outline",
           "state": {
-            "file": "CODE REF/dotNet/ASP .NET Theory.md"
+            "file": "CODE REF/SQL/SQL Theory.md"
           }
         }
       }
@@ -80,7 +80,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CODE REF/dotNet/ASP .NET Theory.md",
+                "file": "CODE REF/SQL/SQL Theory.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,7 +97,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CODE REF/dotNet/ASP .NET Theory.md"
+                "file": "CODE REF/SQL/SQL Theory.md"
               }
             }
           }
@@ -110,6 +110,7 @@
   },
   "active": "59782353a8d9ccf2",
   "lastOpenFiles": [
+    "CODE REF/SQL/SQL Theory.md",
     "CODE REF/dotNet/ASP .NET Theory.md",
     "CODE REF/JavaScript/JavaScript Theory.md",
     "CODE REF/JavaScript/JavaScipt Notes.md",
@@ -118,7 +119,6 @@
     "CODE REF/dotNet/C-sharp Theory.md",
     "CODE REF/Git/Git Theory & Code.md",
     "CODE REF/Git/Basics.md",
-    "CODE REF/PHP/PHP Theory.md",
-    "CODE REF/dotNet/Code/Web API.md"
+    "CODE REF/PHP/PHP Theory.md"
   ]
 }

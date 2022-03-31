@@ -1,3 +1,10 @@
+## What is JS?
+```c#
+/*
+	> JS is a dynamicaly typed client side programming language, however now 
+	we can write server side JS with Node.js
+*
+```
 ## Why is js called a dynamic language?
 ```c#
 /*

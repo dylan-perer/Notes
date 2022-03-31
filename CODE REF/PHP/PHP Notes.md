@@ -41,6 +41,11 @@ echo USERNAME;//notice u don't need to use $ with constant variables
 </body>
 </html>
 ```
+## Get data type of variable
+```php
+$var = true;
+ech gettype($var);
+```
 ## Strings
 ### Methods 
 ```php
@@ -537,4 +542,58 @@ $txt = "Jane Doe\n";
 
 fwrite($myFile, $txt);
 fclose($myFile);
+```
+
+## Write JS inisde PHP
+```php
+<?php
+	
+	$message = "say soemthing";
+	
+	echo "<script type\"text/javascript\">
+			alert('".$message"');
+
+		  </script>	
+?>
+
+```
+
+## Setting response headers
+```php
+<?php
+	header('Content-Type: application/json; charset=utf-8');
+?>
+```
+
+## Connect to data base
+```php
+<?php
+	$hostname = "localhost";
+	$username = "root";
+	$passowrd = "";
+
+	$mysqliconn = new mysqli($hostname,$username,$password);
+
+	if($mysqliconn->connect_error){
+		die("Failed to connect to mysqli: ".$mysqliconn->connect_error);
+	}
+
+	$query = "SELECT * FROM testDB.users";
+	$mysqliconn->query($query);
+?>
+```
+
+## Setting response headers
+```php
+<?php
+	header('Content-Type: application/json; charset=utf-8');
+?>
+```
+
+
+## Setting response headers
+```php
+<?php
+	header('Content-Type: application/json; charset=utf-8');
+?>
 ```

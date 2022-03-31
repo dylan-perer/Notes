@@ -93,7 +93,7 @@ namespace REST_APi.Controllers
 }
 
 ```
-## Model Validation
+## Data annotaions
 ```c#
 public class Ticket { 
 

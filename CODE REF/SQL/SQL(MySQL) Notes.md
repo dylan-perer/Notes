@@ -373,7 +373,8 @@ FROM test_scores
 WHERE grade > (SELECT AVG(grade) FROM test_scores); [[inside]] the perenthesis is the subquery
 ```
 
-
+### Co-related queries
+![[corelatedQuery.png]]
 
 ## SELF JOINS
 
@@ -440,5 +441,7 @@ Completed
 ## Transaction
 ![[transaction.png]]
 
+## Case statement
+![[case stmt.png]]
 # =//Cheatsheet//=
 ![[Screen+Shot+2016-04-17+at+12.22.49+PM (1).png]]

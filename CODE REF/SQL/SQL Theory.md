@@ -149,373 +149,141 @@
 *
 ```
 
-## Title
+## Explain union
 ```c#
 /*
-	>  
+	>   Combines two tables togather into one table.
  *
 ```
 
-## Title
+## Can union be perfomed on tables with different numbe of columns?
 ```c#
 /*
-	> 
+	> No.
 *
 ```
 
-## Title
+## Can union be perfomed on tables with different data types?
 ```c#
 /*
-	> 
+	> No, column datatype has to be the same.
 *
 ```
 
-## Title
+## What are some aggreagte functions you have used?
 ```c#
 /*
-	> 
+	> AVG()
+	> COUNT()
+	> MIN()
+	> MAX()
 *
 ```
 
-## Title
+## Explain group by
 ```c#
 /*
-	> 
+	> It convers rows into summary rows using a common values.
 *
 ```
 
-## Title
+## Can we group by on a column that is not on the select statement?
 ```c#
 /*
-	> 
+	> No, select statement must have th column that you are going to do a group by.
 *
 ```
 
-## Title
+## What is having clause?
 ```c#
 /*
-	> 
+	> It allows you to filter after a group by.
 *
 ```
 
-## Title
+## Explain difference between Where vs Having clause
 ```c#
 /*
-	> 
+	> Where is executed before a group by, and cannot have aggregate function.
+	> Having is executed after a group by, and can have aggregate function.
 *
 ```
 
-## Title
+## How can we sort in sql?
 ```c#
 /*
-	> 
+	> Usinng order by, default is asc.
 *
 ```
 
-## Title
+## How to select only unique values?
 ```c#
 /*
-	> 
+	> Using distinct keyword.
 *
 ```
 
-## Title
+## How to limit sql query results
 ```c#
 /*
-	> 
+	> Using limits in mysql or using top(x) is ms sql server
 *
 ```
 
-## Title
+## What are wild cards?
 ```c#
 /*
-	> 
+	> It allows you to do string pattern matching(LIKE/ILIKE).
 *
 ```
 
-## Title
+## What are case statement?
 ```c#
 /*
-	> 
+	> When a condition is met show the case then statement on the column. i.e. if money spent is greater that $700 in a colmun show a message as
+	high spender.
 *
 ```
 
-## Title
+## What is self reference table
 ```c#
 /*
-	> 
+	> When a table's primary key is refered in it's table (PK and FK are in the same table).
 *
 ```
 
-## Title
+## Explain self join
 ```c#
 /*
-	> 
+	> Similar to a inner join, but it joins a table with it self.
 *
 ```
 
-## Title
+## Explain between clause
 ```c#
 /*
-	> 
+	> Allows you to find values using a range.
 *
 ```
 
-## Title
+## Explain sub-query
 ```c#
 /*
-	> 
+	> Query inside another query.
 *
 ```
 
-## Title
+## Can inner subquery return mutiple values?
 ```c#
 /*
-	> 
+	> Yes, but you must use IN clause rather than =.
 *
 ```
 
-## Title
+## What a co-related query?
 ```c#
 /*
-	> 
+	> similar to sub query but gets executed row by row.
 *
 ```
 
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```
-
-## Title
-```c#
-/*
-	> 
-*
-```

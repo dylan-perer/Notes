@@ -6,7 +6,7 @@
       {
         "id": "1dadc85aafc06504",
         "type": "leaf",
-        "dimension": 20.485678704856788,
+        "dimension": 25.840597758405977,
         "state": {
           "type": "outline",
           "state": {
@@ -15,9 +15,9 @@
         }
       },
       {
-        "id": "679eab618d4da6b6",
+        "id": "ad12bf93ca21873f",
         "type": "leaf",
-        "dimension": 79.5143212951432,
+        "dimension": 74.15940224159402,
         "state": {
           "type": "markdown",
           "state": {
@@ -108,17 +108,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "679eab618d4da6b6",
+  "active": "ad12bf93ca21873f",
   "lastOpenFiles": [
     "CODE REF/dotNet/Code/Web API.md",
+    "CODE REF/SQL/SQL Theory.md",
+    "CODE REF/SQL/SQL(MySQL) Notes.md",
+    "Visual Paradigm/Notes.md",
+    "CODE REF/SQL/SQL Server.md",
     "CODE REF/dotNet/Code/MVC.md",
     "CODE REF/dotNet/Code/ASP.NET.md",
     "CODE REF/dotNet/Code/C-sharp.md",
     "CODE REF/dotNet/ASP .NET Theory.md",
-    "CODE REF/SQL/SQL Theory.md",
-    "README.md",
-    "CODE REF/PHP/PHP Theory.md",
-    "CODE REF/PHP/PHP Notes.md",
-    "CODE REF/JavaScript/JavaScript Theory.md"
+    "README.md"
   ]
 }

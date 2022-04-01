@@ -165,7 +165,7 @@ public class EnsureUqniqueUsername : ValidationAttribute
 ```c#
 /*
 	> Packages to install
-		- Microsoft.AspNetCore.Authentication.JwtBearer v 3.1.20
+		- <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.23" />
 		- Microsoft.IdentityModel.Tokens 
 		- System.IdentityModel.Tokens.Jwt
 *
@@ -175,35 +175,83 @@ public class EnsureUqniqueUsername : ValidationAttribute
 ```json
 {
   ...
-  "Jwt": {
-    "Key": "9kYUNluWP616FpMGr6j9yl",
-    "Issuer": "https://localhost:44324/",//host address
-    "Audience": "https://localhost:44324/" //consumer address
-  }
-}
+"Jwt": {
+	"Key": "gMnjIp8dklS0DRxSIOS8rhOz5NIIWEJx",
+	"TokenLifeTime": "20", //in seconds
+	"Issuer": "https://localhost:44348/", //host address
+	"Audience": "https://localhost:44348/" //consumer address
+},
 ```
-### Startup.cs
+### ConfigureServices()
 ```c#
-public void ConfigureServices(IServiceCollection services)
+ //Jwt token
+var tokenValidationParameters = new TokenValidationParameters
 {
-	services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)// configuring jwt & passing in properties set on settings file
-		.AddJwtBearer(options => {
-			options.TokenValidationParameters = new TokenValidationParameters
-			{
-				ValidateIssuer = true,
-				ValidateAudience = true,
-				ValidateLifetime = true,
-				ValidateIssuerSigningKey = true,
-				ValidIssuer = Configuration["Jwt:Issuer"],
-				ValidAudience = Configuration["Jwt:Audience"],
-				IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+	ValidateIssuerSigningKey = true,
+	IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"])),
+	ValidateIssuer = false,
+	ValidateAudience = false,
+	ValidateLifetime = true,
+	RequireExpirationTime = true,
+	/*           ValidIssuer = configuration["Jwt:Issuer"],
+			   ValidAudience = configuration["Jwt:Audience"],*/
+};
+services.AddSingleton(tokenValidationParameters);
 
-			};
-		});
+services.AddAuthentication(options =>
+{
+	options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+	options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+	options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 
-	services.AddControllers();
+}).AddJwtBearer(x => {
+	x.SaveToken = true;
+	x.TokenValidationParameters = tokenValidationParameters;
+});
+```
+### Services()
+```c#
+
+app.UseAuthentication(); 
+
+```
+
+### Generate Token
+```c#
+public async Task<IAuthResponse> GenerateToken(User user, IAuthResponse authResponse)
+{
+	var jwtTokenHandler = new JwtSecurityTokenHandler();
+
+	SymmetricSecurityKey securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+
+	/*await InitalizeRoles();*/
+
+	var role = _dataContext.Role.FirstOrDefault(r => r.Id == user.RoleId);
+	var tokenDescriptor = new SecurityTokenDescriptor
+	{
+		Subject = new ClaimsIdentity(new[]
+		{
+			 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+			 new Claim(ClaimTypes.Role, role.RoleName),
+		 }),
+		Expires = DateTime.UtcNow.AddSeconds(10),
+		SigningCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256)
+	};
+
+	var token = jwtTokenHandler.CreateToken(tokenDescriptor);
+
+	authResponse.Map(new JwtSecurityTokenHandler().WriteToken(token),
+					token.ValidFrom.ToLocalTime(),
+					token.ValidTo.ToLocalTime(),
+
+					null,
+					DateTime.UtcNow,
+					DateTime.UtcNow);
+
+	return authResponse;
 }
 ```
+
 ### AuthenticateController.cs
 ```c#
 namespace CommunityDrivenSocialPlatform_APi.Controllers
@@ -375,3 +423,4 @@ public void ConfigureServices(IServiceCollection services)
 	ServiceConfigExtension.ConfigureAll(services, Configuration);
 }
 ```
+

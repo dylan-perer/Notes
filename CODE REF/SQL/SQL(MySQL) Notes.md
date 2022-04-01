@@ -335,8 +335,7 @@ SELECT TO_CHAR(payment_date, 'dd-mm-yyyy') FROM payment;
 
 
 ## MATHEMATICAL Functions
-
-<img src="E:\docs\CODE REF\img\Screenshot 2021-11-24 125732.png" alt="Screenshot 2021-11-24 125732" style="zoom: 150%;" />
+![[Screenshot 2021-11-24 125732.png]]
 
 ### Docs link: 
 
@@ -344,7 +343,7 @@ SELECT TO_CHAR(payment_date, 'dd-mm-yyyy') FROM payment;
 
 ## STRING Functions
 
-<img src="E:\docs\CODE REF\img\Screenshot 2021-11-24 130158.png" alt="Screenshot 2021-11-24 130158" style="zoom:150%;" />
+![[Screenshot 2021-11-24 130158.png]]
 
 ```sql
 # concatinate two collums and add a space between them.
@@ -420,9 +419,26 @@ JOIN employees AS report ON
 emp.emp_id = report.report_id;
 ```
 
+## Normal Forms
+### 1st Normal form
+Setup
+![[1stNM.png]]
+Completed
+![[1stNM_complete.png]]
+### 2nd Normal form
+Setup
+![[2ndNM.png]]
+Completed
+![[2ndNMComple.png]]
 
+### 3rd Nomal form
+Setup
+![[3rdNM.png]]
+Completed
+![[3rdNMComple.png]]
 
-
+## Transaction
+![[transaction.png]]
 
 # =//Cheatsheet//=
 ![[Screen+Shot+2016-04-17+at+12.22.49+PM (1).png]]

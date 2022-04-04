@@ -2,23 +2,36 @@
 https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-3.1&tabs=visual-studio
 ### Packages
 ```shell
-Install-Package Swashbuckle.AspNetCore -Version 5.6.3
+Install-Package Swashbuckle.AspNetCore 
 ```
-
-### Middleware
+### ConfigureService
 ```c#
-// Enable middleware to serve generated Swagger as a JSON endpoint.
-app.UseSwagger(c =>
+ services.AddSwaggerGen(c =>
 {
-	c.SerializeAsV2 = true;
+	c.SwaggerDoc("v1", new OpenApiInfo { Title = "Anthera", Version = "V1" });
+	c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+	{
+		In = ParameterLocation.Header,
+		Description = "Please insert JWT with Bearer into field",
+		Name = "Authorization",
+		Type = SecuritySchemeType.ApiKey
+	});
+	c.AddSecurityRequirement(new OpenApiSecurityRequirement {
+		{
+		  new OpenApiSecurityScheme {
+			Reference = new OpenApiReference {
+			  Type = ReferenceType.SecurityScheme,
+				Id = "Bearer"
+			}
+		  },
+		  new string[] {}
+		} });
 });
-
-// Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
-// specifying the Swagger JSON endpoint.
-app.UseSwaggerUI(c =>
-{
-	c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-});
+```
+### Configure
+```c#
+app.UseSwagger();
+app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Anthera v1"));
 ```
 ### Service Config
 ```c#

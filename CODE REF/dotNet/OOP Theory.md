@@ -40,6 +40,29 @@
 *
 ```
 
+## What is Software Development Life Cycle(SLDC)
+```c#
+/*
+	> It is software development framework.
+	> whic has 7 stages
+		- planning stage
+		- analysing stage
+		- desginig stage
+		- development stage
+		- testing stage
+		- integration state
+		- maintance stage
+*
+```
+
+## What is Agile?
+```c#
+/*
+	> Agile is an iterative approach to software development.
+		- It is easily adaptable to change unlike something like water fall aproach.
+*
+```
+
 ## Explain Abstraction & Encapsulation
 ```c#
 /*
@@ -306,3 +329,4 @@
 	> Higher level classes should not know the implementation of low-level classes.
 *
 ```
+

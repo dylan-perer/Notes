@@ -4,25 +4,29 @@
     "type": "split",
     "children": [
       {
-        "id": "98271915c26f2149",
-        "type": "leaf",
-        "dimension": 17.372353673723538,
-        "state": {
-          "type": "empty",
-          "state": {}
-        }
-      },
-      {
         "id": "d158eab4c2a389b8",
         "type": "leaf",
-        "dimension": 82.62764632627646,
+        "dimension": 69.7384806973848,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "CODE REF/dotNet/OOP Theory.md",
+            "file": "CODE REF/React.js/TypeScript React.js.md",
             "mode": "source"
           }
-        }
+        },
+        "group": "07050c0b9335dfe9"
+      },
+      {
+        "id": "0ff125231fcb6f75",
+        "type": "leaf",
+        "dimension": 30.26151930261519,
+        "state": {
+          "type": "outline",
+          "state": {
+            "file": "CODE REF/React.js/TypeScript React.js.md"
+          }
+        },
+        "group": "07050c0b9335dfe9"
       }
     ],
     "direction": "vertical"
@@ -78,7 +82,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CODE REF/dotNet/OOP Theory.md",
+                "file": "CODE REF/React.js/TypeScript React.js.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -95,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CODE REF/dotNet/OOP Theory.md"
+                "file": "CODE REF/React.js/TypeScript React.js.md"
               }
             }
           }
@@ -108,15 +112,15 @@
   },
   "active": "d158eab4c2a389b8",
   "lastOpenFiles": [
+    "CODE REF/React.js/TypeScript React.js.md",
+    "CODE REF/React.js/React.js Notes.md",
     "CODE REF/dotNet/OOP Theory.md",
-    "CODE REF/dotNet/Code/Web API.md",
     "CODE REF/dotNet/Code/MVC.md",
-    "CODE REF/dotNet/C-sharp Theory.md",
+    "CODE REF/dotNet/Code/C-sharp.md",
     "CODE REF/dotNet/ASP .NET Theory.md",
-    "CODE REF/SQL/SQL Theory.md",
-    "CODE REF/SQL/SQL(MySQL) Notes.md",
-    "CODE REF/PHP/PHP Theory.md",
-    "Visual Paradigm/Notes.md",
-    "CODE REF/SQL/SQL Server.md"
+    "CODE REF/dotNet/Code/Web API.md",
+    "CODE REF/dotNet/C-sharp Theory.md",
+    "CODE REF/Projects/Anthera.md",
+    "CODE REF/SQL/SQL Theory.md"
   ]
 }

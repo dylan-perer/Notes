@@ -62,3 +62,32 @@ const style: React.CSSProperties = {
 
 export default App;
 ```
+
+## Passing JSX Element as a prop
+### Parent
+```tsx
+type UserDetailProp = {
+  children: JSX.Element,
+  svgStyle: ViewStyle
+}
+
+const UserInfo = (props:UserDetailProp) => {
+  return (
+    ... 
+	  {props.children}
+	...
+  )
+}
+```
+### child
+```tsx
+const NameScreen = () => {
+
+  return (
+
+    <View>
+        <UserInfo svgStyle={styles.svg}><Text></Text></UserInfo>
+    </View>
+  )
+}
+```

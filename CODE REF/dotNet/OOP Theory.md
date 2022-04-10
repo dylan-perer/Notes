@@ -58,8 +58,29 @@
 ## What is Agile?
 ```c#
 /*
-	> Agile is an iterative approach to software development.
-		- It is easily adaptable to change unlike something like water fall aproach.
+	> Agile is an approach to rapidly deploy a application in a organised way.
+	> it is a itterative approach.
+	> values are
+		- People over process and tools
+		- working software over comphensive documentaiton
+		- customer collaboration orver rigid contracts
+		- responding to change ranther follwing a plan
+		
+	> advantages of agile
+		- welcomes chnages
+		- satified stake holders
+		- contious delivery
+*
+```
+
+### What is SCRUM
+```c#
+/*
+	< It's a framework that we can with in agile
+	> 3 type heirachy
+		- product owner
+		- scrum master (team leader)
+		- Team (devs and testers)
 *
 ```
 

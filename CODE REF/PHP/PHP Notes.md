@@ -437,6 +437,13 @@ go to this website to check curl code: https://paiza.io/projects/3Q8KloXBWiELzAm
 $curl = curl_init();
 $url = "https://jsonplaceholder.typicode.com/posts";
 
+//if u need query params
+$params = array('client_id' => '293785');  
+$params = array('apikey' => 'd17261d51ff7046b760bd95b4ce781ac');  
+  
+$url = $endpoint . '?' . http_build_query($params);
+
+
 curl_setopt($curl, CURLOPT_URL, $url);//setting curl options
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);//tell curl to return data rather than just output it.
 
@@ -503,7 +510,7 @@ curl_close($curl);//close the connection
         'add more..'
     ];
 
-    $data = http_build_query($data_array);//conver array to url encoded format
+    $data = http_build_query($data_array);//convert array to url encoded format
 
     curl_setopt($curl, CURLOPT_URL, $url);//setting curl options
     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'PUT');//tell curl ist a PUT request

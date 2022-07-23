@@ -531,6 +531,187 @@ curl_close($curl);//close the connection
     curl_close($curl);//close the connection
 ```
 
+## REST API
+#### Folder structure
+![[Screenshot 2022-05-03 203248.png]]
+
+#### Headers (inc file)
+```php
+<?php  
+//headers  
+header('Access-Control-Allow-Origin: *');//access by anyone  
+header('Content-Type: application/json');//accept json  
+header('Access-Control-Allow-Methods: POST');  
+header('Access-Control-Allow-Methods: PUT');  
+header('Access-Control-Allow-Methods: DELETE');  
+header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');  
+  
+include_once '../../config/Database.php';  
+include_once '../../models/Post.php';
+
+```
+
+#### Get all
+```php
+<?php
+include_once './post.inc.php';
+
+//instantiate database & connect
+$database = new Database();
+$db = $database->connect();
+
+//instantiate blog post object
+$post = new Post($db);
+
+//execute read query
+$result = $post->read();
+$numOfRows = $result->rowCount();
+
+if($numOfRows>0){
+    $posts_arr = array();
+    $posts_arr['data']= array();
+
+    while ($row=$result->fetch(PDO::FETCH_ASSOC)){
+        //extract data from query as variables
+        extract($row);
+
+        $post_item = array(
+            'id' => $id,//these variables are coming from extract function
+            'title' => $title,
+            'body'=>html_entity_decode($body),
+            'author'=>$author,
+            'category_id'=> $category_id,
+            'category_name'=>$name
+        );
+
+        array_push($posts_arr['data'], $post_item);
+    }
+
+    //convert php array to json
+    echo json_encode($posts_arr);
+}else{
+    echo json_encode(
+        array('message'=>'No posts found')
+    );
+}
+
+```
+
+#### Get single
+```php
+<?php
+
+//headers
+header('Access-Control-Allow-Origin: *');//access by anyone
+header('Content-Type: application/json');//accept json
+
+include_once '../../config/Database.php';
+include_once '../../models/Post.php';
+
+//instantiate database & connect
+$database = new Database();
+$db = $database->connect();
+
+//instantiate blog post object
+$post = new Post($db);
+
+//grab the query parameter (id) if exists
+if(!isset($_GET['id'])){
+    echo json_encode(array('message' => 'invalid query parameter'));
+}else{
+    //extract data from query and send response as json
+    $post->id = $_GET['id'];
+    $result = $post->read_single();
+
+    $row = $result->fetch(PDO::FETCH_ASSOC);
+
+    if($row){
+        echo json_encode($row);
+    }else{
+        echo json_encode(array('message'=>'no post in '.$_GET['id'].' was found.'));
+    }
+}
+
+```
+
+#### Create
+```php
+<?php  
+include_once './post.inc.php';  
+  
+//instantiate database & connect  
+$database = new Database();  
+$db = $database->connect();  
+  
+//instantiate blog post object  
+$post = new Post($db);  
+  
+//get posted raw data  
+$data = json_decode(file_get_contents('php://input'));  
+  
+$post->title = $data->title;  
+$post->body = $data->body;  
+$post->author = $data->author;  
+$post->category_id = $data->category_id;  
+  
+  
+if($post->create()){  
+    echo json_encode(array('message'=>"post created."));  
+}else{  
+    echo json_encode(array('message'=>"failed to crate post"));  
+}
+```
+
+#### Update
+```php
+<?php  
+include_once './post.inc.php';  
+  
+//instantiate database & connect  
+$database = new Database();  
+$db = $database->connect();  
+  
+//instantiate blog post object  
+$post = new Post($db);  
+  
+//get posted raw data  
+$data = json_decode(file_get_contents('php://input'));  
+  
+$post->title = $data->title;  
+$post->body = $data->body;  
+$post->author = $data->author;  
+$post->category_id = $data->category_id;  
+$post->id = $data->id;  
+  
+  
+if($post->update()){  
+    echo json_encode(array('message'=>"post updated."));  
+}else{  
+    echo json_encode(array('message'=>"failed to update post"));  
+}
+```
+
+#### Delete
+```php
+<?php  
+include_once './post.inc.php';  
+  
+//instantiate database & connect  
+$database = new Database();  
+$db = $database->connect();  
+  
+//instantiate blog post object  
+$post = new Post($db);  
+  
+if(isset($_GET['id'])){  
+$post->id = $_GET['id'];  
+if($post->delete()){  
+	echo json_encode(array('message'=>"post deleted."));  
+}else{  
+	echo json_encode(array('message'=>"failed to deleted post"));  
+}}
+```
+
 ## File system
 ### Read file
 ```php

@@ -6,23 +6,24 @@
       {
         "id": "0ff125231fcb6f75",
         "type": "leaf",
-        "dimension": 18.05728518057285,
+        "dimension": 16.68742216687422,
         "state": {
           "type": "outline",
           "state": {
-            "file": "CODE REF/InterviewPrep/SiteHost.md"
+            "file": "CODE REF/Redux/Redux.js Notes.md"
           }
         }
       },
       {
-        "id": "a81d2518cfd7b6fc",
+        "id": "9e54e1339f8d3295",
         "type": "leaf",
-        "dimension": 81.94271481942715,
+        "dimension": 83.31257783312577,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "CODE REF/InterviewPrep/SiteHost.md",
-            "mode": "source"
+            "file": "CODE REF/Redux/Redux.js Notes.md",
+            "mode": "source",
+            "source": false
           }
         }
       }
@@ -80,7 +81,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CODE REF/InterviewPrep/SiteHost.md",
+                "file": "CODE REF/Redux/Redux.js Notes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,7 +98,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CODE REF/InterviewPrep/SiteHost.md"
+                "file": "CODE REF/Redux/Redux.js Notes.md"
               }
             }
           }
@@ -108,17 +109,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "a81d2518cfd7b6fc",
+  "active": "9e54e1339f8d3295",
   "lastOpenFiles": [
-    "CODE REF/InterviewPrep/SiteHost.md",
-    "CODE REF/dotNet/ASP .NET Theory.md",
-    "CODE REF/dotNet/C-sharp Theory.md",
-    "CODE REF/dotNet/OOP Theory.md",
-    "CODE REF/PHP/PHP Theory.md",
-    "CODE REF/PHP/PHP Notes.md",
-    "CODE REF/JavaScript/JavaScipt Notes.md",
-    "CODE REF/Java/Java Notes.md",
+    "CODE REF/Redux/Redux.js Notes.md",
+    "CODE REF/SQL/SQL(MySQL) Notes.md",
+    "CODE REF/SQL/SQL Theory.md",
+    "CODE REF/SQL/SQL Server.md",
     "CODE REF/React.js/TypeScript React.js.md",
-    "CODE REF/React.js/React.js Notes.md"
+    "CODE REF/React.js/React.js Notes.md",
+    "CODE REF/Redux/Redux.md",
+    "CODE REF/Coding Tasks.md",
+    "CODE REF/Linux/Linux Notes.md",
+    "CODE REF/PHP/PHP Notes.md"
   ]
 }
